@@ -1,0 +1,98 @@
+
+/* 1. Fondo Crema Suave */
+window {
+    background-color: #FEFAE0; 
+    color: #283618;
+    font-family: "Segoe UI", sans-serif;
+    font-weight: 700;
+}
+
+/* 2. Cajas de Texto */
+entry {
+    background-color: #FFFFFF;
+    color: #283618;
+    border: 2px solid #606C38;
+    border-radius: 8px;
+    padding: 6px;
+    margin: 2px;
+}
+entry:focus {
+    border-color: #BC6C25;
+    background-color: #FFFDF5;
+}
+
+/* 3. Botones - IMPORTANTE: Resetear imagen de fondo */
+button {
+    background-color: #EDE9D5; 
+    background-image: none; /* <--- ESTO ARREGLA EL PROBLEMA */
+    color: #283618;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 4px;
+    box-shadow: none; /* Quitamos sombras del sistema */
+}
+
+button:hover {
+    background-color: #D6D2BF;
+    background-image: none;
+}
+
+
+/* Botón GESTIÓN (Terracota) */
+.boton-crud {
+    background-color: #BC6C25; 
+    color: #FEFAE0; 
+}
+.boton-crud:hover {
+    background-color: #9A561C;
+}
+
+/* Botón GUARDAR (Verde Oscuro) */
+.boton-guardar {
+    padding: 14px; 
+    background-color: #283618;
+    color: #FEFAE0;
+}
+.boton-guardar:hover {
+    padding: 14px; 
+    background-color: #1A2410;
+}
+
+/* Botones de FILTRO (Verde Oliva) */
+.boton-filtro {
+    padding: 14px; 
+    background-color: #606C38;
+    color: #FEFAE0;
+}
+.boton-filtro:hover {
+    padding: 14px; 
+    background-color: #4A542B;
+}
+
+/* Botón FAVORITOS (Mostaza) */
+.boton-filtro.favorito { 
+    padding: 14px; 
+    background-color: #DDA15E; 
+    color: #283618; /* Texto oscuro para contraste */
+}
+.boton-filtro.favorito:hover {
+    padding: 14px; 
+    background-color: #C28B4D;
+}
+
+/* 4. Lista */
+list {
+    background-color: #FFFFFF;
+    border: 2px solid #606C38;
+    border-radius: 8px;
+}
+list > row {
+    padding: 12px;
+    border-bottom: 1px solid #EEEEEE;
+}
+/* Selección en la lista */
+list > row:selected {
+    background-color: #DDA15E; /* Fondo Terracota al seleccionar */
+    color: #FEFAE0;
+}

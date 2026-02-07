@@ -1,0 +1,450 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{80276422-AD66-3EFC-AA17-B003E5FBB014}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <VcpkgEnabled>false</VcpkgEnabled>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>AgendaDeContactos</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AgendaDeContactos.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AgendaDeContactos</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AgendaDeContactos.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AgendaDeContactos</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">AgendaDeContactos.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">AgendaDeContactos</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">AgendaDeContactos.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">AgendaDeContactos</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/gtkmm-4.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/gtkmm-4.0/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/gtk-4.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/cairo" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/graphene-1.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/graphene-1.0/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/pangomm-2.48" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/pangomm-2.48/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/giomm-2.68" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/giomm-2.68/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/glibmm-2.68" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/glibmm-2.68/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/pango-1.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/pixman-1" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/fribidi" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/harfbuzz" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/libpng16" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/gdk-pixbuf-2.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/glib-2.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/glib-2.0/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;_HAS_STD_BYTE=0;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_HAS_STD_BYTE=0;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtkmm-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtkmm-4.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtk-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\cairo;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\graphene-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\graphene-1.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pangomm-2.48;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangomm-2.48\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\giomm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\giomm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glibmm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glibmm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pango-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pixman-1;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\fribidi;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\harfbuzz;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\libpng16;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gdk-pixbuf-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glib-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glib-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtkmm-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtkmm-4.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtk-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\cairo;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\graphene-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\graphene-1.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pangomm-2.48;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangomm-2.48\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\giomm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\giomm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glibmm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glibmm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pango-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pixman-1;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\fribidi;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\harfbuzz;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\libpng16;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gdk-pixbuf-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glib-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glib-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>	Copiando style.css a la carpeta del ejecutable...</Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/nicol/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/Debug/AgendaDeContactos.exe -installedDir C:/Users/nicol/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E make_directory C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/Debug/presentacion
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/presentacion/style.css C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/Debug/presentacion/style.css
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>Debug\CapaInterfaz.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtkmm-4.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtk-4.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\cairo-gobject.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\graphene-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangomm-2.48.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\giomm-2.68.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glibmm-2.68.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\cairomm-1.16.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\sigc-3.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangocairo-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangowin32-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pango-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\cairo.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\harfbuzz.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gdk_pixbuf-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gio-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gobject-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glib-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\intl.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/Debug/AgendaDeContactos.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/Debug/AgendaDeContactos.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/gtkmm-4.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/gtkmm-4.0/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/gtk-4.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/cairo" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/graphene-1.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/graphene-1.0/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/pangomm-2.48" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/pangomm-2.48/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/giomm-2.68" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/giomm-2.68/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/glibmm-2.68" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/glibmm-2.68/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/pango-1.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/pixman-1" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/fribidi" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/harfbuzz" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/libpng16" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/gdk-pixbuf-2.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/glib-2.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/glib-2.0/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_STD_BYTE=0;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_STD_BYTE=0;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtkmm-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtkmm-4.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtk-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\cairo;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\graphene-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\graphene-1.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pangomm-2.48;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangomm-2.48\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\giomm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\giomm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glibmm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glibmm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pango-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pixman-1;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\fribidi;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\harfbuzz;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\libpng16;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gdk-pixbuf-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glib-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glib-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtkmm-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtkmm-4.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtk-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\cairo;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\graphene-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\graphene-1.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pangomm-2.48;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangomm-2.48\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\giomm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\giomm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glibmm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glibmm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pango-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pixman-1;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\fribidi;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\harfbuzz;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\libpng16;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gdk-pixbuf-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glib-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glib-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>	Copiando style.css a la carpeta del ejecutable...</Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/nicol/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/Release/AgendaDeContactos.exe -installedDir C:/Users/nicol/vcpkg/installed/x64-windows/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E make_directory C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/Release/presentacion
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/presentacion/style.css C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/Release/presentacion/style.css
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>Release\CapaInterfaz.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtkmm-4.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtk-4.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\cairo-gobject.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\graphene-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangomm-2.48.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\giomm-2.68.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glibmm-2.68.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\cairomm-1.16.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\sigc-3.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangocairo-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangowin32-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pango-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\cairo.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\harfbuzz.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gdk_pixbuf-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gio-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gobject-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glib-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\intl.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/Release/AgendaDeContactos.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/Release/AgendaDeContactos.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/gtkmm-4.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/gtkmm-4.0/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/gtk-4.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/cairo" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/graphene-1.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/graphene-1.0/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/pangomm-2.48" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/pangomm-2.48/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/giomm-2.68" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/giomm-2.68/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/glibmm-2.68" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/glibmm-2.68/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/pango-1.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/pixman-1" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/fribidi" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/harfbuzz" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/libpng16" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/gdk-pixbuf-2.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/glib-2.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/glib-2.0/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_STD_BYTE=0;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_STD_BYTE=0;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtkmm-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtkmm-4.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtk-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\cairo;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\graphene-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\graphene-1.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pangomm-2.48;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangomm-2.48\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\giomm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\giomm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glibmm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glibmm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pango-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pixman-1;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\fribidi;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\harfbuzz;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\libpng16;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gdk-pixbuf-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glib-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glib-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtkmm-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtkmm-4.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtk-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\cairo;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\graphene-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\graphene-1.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pangomm-2.48;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangomm-2.48\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\giomm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\giomm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glibmm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glibmm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pango-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pixman-1;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\fribidi;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\harfbuzz;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\libpng16;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gdk-pixbuf-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glib-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glib-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>	Copiando style.css a la carpeta del ejecutable...</Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/nicol/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/MinSizeRel/AgendaDeContactos.exe -installedDir C:/Users/nicol/vcpkg/installed/x64-windows/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E make_directory C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/MinSizeRel/presentacion
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/presentacion/style.css C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/MinSizeRel/presentacion/style.css
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>MinSizeRel\CapaInterfaz.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtkmm-4.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtk-4.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\cairo-gobject.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\graphene-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangomm-2.48.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\giomm-2.68.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glibmm-2.68.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\cairomm-1.16.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\sigc-3.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangocairo-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangowin32-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pango-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\cairo.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\harfbuzz.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gdk_pixbuf-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gio-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gobject-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glib-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\intl.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/MinSizeRel/AgendaDeContactos.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/MinSizeRel/AgendaDeContactos.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/gtkmm-4.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/gtkmm-4.0/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/gtk-4.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/cairo" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/graphene-1.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/graphene-1.0/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/pangomm-2.48" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/pangomm-2.48/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/giomm-2.68" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/giomm-2.68/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/glibmm-2.68" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/glibmm-2.68/include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/pango-1.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/pixman-1" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/fribidi" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/harfbuzz" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/libpng16" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/gdk-pixbuf-2.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/../include/glib-2.0" /external:I "C:/Users/nicol/vcpkg/installed/x64-windows/debug/lib/glib-2.0/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_STD_BYTE=0;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_HAS_STD_BYTE=0;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtkmm-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtkmm-4.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtk-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\cairo;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\graphene-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\graphene-1.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pangomm-2.48;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangomm-2.48\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\giomm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\giomm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glibmm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glibmm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pango-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pixman-1;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\fribidi;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\harfbuzz;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\libpng16;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gdk-pixbuf-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glib-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glib-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtkmm-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtkmm-4.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gtk-4.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\cairo;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\graphene-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\graphene-1.0\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pangomm-2.48;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangomm-2.48\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\giomm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\giomm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glibmm-2.68;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glibmm-2.68\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pango-1.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\pixman-1;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\fribidi;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\harfbuzz;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\libpng16;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\gdk-pixbuf-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\..\include\glib-2.0;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glib-2.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message>	Copiando style.css a la carpeta del ejecutable...</Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/nicol/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/RelWithDebInfo/AgendaDeContactos.exe -installedDir C:/Users/nicol/vcpkg/installed/x64-windows/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E make_directory C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/RelWithDebInfo/presentacion
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E copy_if_different C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/presentacion/style.css C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/RelWithDebInfo/presentacion/style.css
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>RelWithDebInfo\CapaInterfaz.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtkmm-4.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gtk-4.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\cairo-gobject.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\graphene-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangomm-2.48.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\giomm-2.68.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glibmm-2.68.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\cairomm-1.16.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\sigc-3.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangocairo-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pangowin32-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\pango-1.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\cairo.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\harfbuzz.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gdk_pixbuf-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gio-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\gobject-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\glib-2.0.lib;C:\Users\nicol\vcpkg\installed\x64-windows\debug\lib\intl.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/RelWithDebInfo/AgendaDeContactos.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/RelWithDebInfo/AgendaDeContactos.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\CMakelists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/nicol/Desktop/directorio/Agenda-de-Contactos -BC:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build --check-stamp-file C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPkgConfig.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeCCompiler.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeCXXCompiler.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeRCCompiler.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeSystem.cmake;C:\Users\nicol\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/nicol/Desktop/directorio/Agenda-de-Contactos -BC:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build --check-stamp-file C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPkgConfig.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeCCompiler.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeCXXCompiler.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeRCCompiler.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeSystem.cmake;C:\Users\nicol\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/nicol/Desktop/directorio/Agenda-de-Contactos -BC:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build --check-stamp-file C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPkgConfig.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeCCompiler.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeCXXCompiler.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeRCCompiler.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeSystem.cmake;C:\Users\nicol\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/nicol/Desktop/directorio/Agenda-de-Contactos -BC:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build --check-stamp-file C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCXXInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeDependentOption.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeGenericSystem.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeLanguageInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeRCInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Compiler\MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPackageMessage.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\FindPkgConfig.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\Windows.cmake;C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\share\cmake-3.31\Modules\Platform\WindowsPaths.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeCCompiler.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeCXXCompiler.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeRCCompiler.cmake;C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\3.31.6-msvc6\CMakeSystem.cmake;C:\Users\nicol\vcpkg\scripts\buildsystems\vcpkg.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\main.cpp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\ZERO_CHECK.vcxproj">
+      <Project>{97531E96-9BB2-3FF8-9FA7-1CCA4C882E16}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\build\CapaInterfaz.vcxproj">
+      <Project>{A24E0612-DF41-373D-98B0-4944245F978C}</Project>
+      <Name>CapaInterfaz</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

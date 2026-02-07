@@ -1,0 +1,4 @@
+C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/CMakeFiles/CapaInterfaz.dir
+C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/CMakeFiles/AgendaDeContactos.dir
+C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/CMakeFiles/ZERO_CHECK.dir
