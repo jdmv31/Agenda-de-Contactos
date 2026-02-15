@@ -4,7 +4,7 @@
 #include <string>
 
 int main(int argc, char* argv[]) {
-    auto app = Gtk::Application::create("org.gtkmm.ejemplo");
+    auto app = Gtk::Application::create("Agenda de Contactos");
 
-    return app->make_window_and_run<VistaPrincipal>(argc, argv);
+    return app->make_window_and_run<Interfaz>(argc, argv);
 }

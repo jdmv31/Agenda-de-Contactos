@@ -24,18 +24,13 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     PkgConfig::GTKMM
 )
 
-# ... (todo tu código anterior) ...
 
-# 1. Creamos el comando para copiar el archivo style.css después de compilar
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    # Primero: Asegura que exista la carpeta 'presentacion' en el build
     COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${PROJECT_NAME}>/presentacion
-    
-    # Segundo: Copia el archivo style.css si ha cambiado
+
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${CMAKE_CURRENT_SOURCE_DIR}/presentacion/style.css"
     "$<TARGET_FILE_DIR:${PROJECT_NAME}>/presentacion/style.css"
-    
-    # Mensaje en consola para que sepas que lo hizo
+
     COMMENT "Copiando style.css a la carpeta del ejecutable..."
 )
