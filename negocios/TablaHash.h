@@ -25,4 +25,6 @@ class TablaHash{
         void agregarContacto(string nombre, string apellido, string correo, int numeral, long numero);
         Nodo* crearNodo(string nombre, string apellido, string correo, int numeral, long numero);
         void recorrerTabla(std::function<void(Nodo*)> accion);
+        bool eliminarContacto(long numero);
+        bool modificarContacto(long numero, string nombreN, string apellidoN, string correoN);
 };

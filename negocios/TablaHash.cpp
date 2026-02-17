@@ -58,3 +58,40 @@ void TablaHash::recorrerTabla(std::function<void(Nodo*)> accion) {
         }
     }
 }
+
+bool TablaHash::eliminarContacto(long numero){
+    int indice = hashing(numero);
+    Nodo*anterior = nullptr;
+    Nodo*actual = tablaHash[indice];
+
+    while (actual != nullptr){
+        if (actual->numeroTelefonico == numero){
+            if (anterior == nullptr)
+                tablaHash[indice] = actual->sig;
+            else
+                anterior->sig = actual->sig;
+            delete actual;
+            return true;
+        }
+        anterior = actual;
+        actual = actual->sig;
+    }
+    return false;
+}
+
+
+bool TablaHash::modificarContacto(long numero, string nombreN, string apellidoN, string correoN){
+    int indice = hashing(numero);
+    Nodo* actual = tablaHash[indice];
+
+    while (actual != nullptr) {
+        if (actual->numeroTelefonico == numero) {
+            actual->nombre = nombreN;
+            actual->apellido = apellidoN;
+            actual->correo = correoN;
+            return true;
+        }
+        actual = actual->sig;
+    }
+    return false; 
+}

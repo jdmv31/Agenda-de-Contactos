@@ -7,6 +7,72 @@ using std::string;
 
 extern TablaHash tabla;
 
+// =========================================================
+// CLASE: VISTA MODIFICAR
+// =========================================================
+class VistaModificar : public Gtk::Box {
+    public:
+        VistaModificar(Gtk::Notebook& notebook);
+        void cargar_contactos();
+
+    protected:
+        Gtk::Notebook& m_notebook;
+        Gtk::Box m_CenterBox;
+
+        // --- PANEL 1: Lista de Contactos ---
+        Gtk::Box m_PanelLista;
+        Gtk::Label m_LblTituloLista;
+        Gtk::ScrolledWindow m_ScrolledWindow;
+        Gtk::Box m_ListadoBox; 
+        Gtk::Button m_BtnVolverMenu;
+
+        // --- PANEL 2: Formulario de Edición ---
+        Gtk::Box m_PanelEdicion;
+        Gtk::Label m_LblTituloEdicion;
+        Gtk::Label m_LblTlfFijo; // Mostrará el teléfono como texto fijo (solo lectura)
+        
+        Gtk::Grid m_GridCampos;
+        Gtk::Entry m_EntryNombre;
+        Gtk::Entry m_EntryApellido;
+        Gtk::Entry m_EntryEmail;
+
+        Gtk::InfoBar m_InfoBar;
+        Gtk::Label m_LblInfoBar;
+
+        Gtk::Button m_BtnGuardar;
+        Gtk::Button m_BtnCancelarEdicion;
+
+        // Variable para recordar qué contacto estamos editando
+        long m_numeroActual; 
+
+        // Métodos
+        void on_volver_menu_clicked();
+        void on_cancelar_edicion_clicked();
+        void on_guardar_edicion_clicked();
+        void mostrarError(std::string mensaje);
+        void mostrarExito(std::string mensaje);
+        Gtk::Box* crear_tarjeta_modificar(std::string nombre, std::string apellido, std::string tlf, std::string correo, long numero_real);
+};
+
+class VistaEliminar : public Gtk::Box {
+    public:
+        VistaEliminar(Gtk::Notebook& notebook);
+        void cargar_contactos();
+
+    protected:
+        Gtk::Notebook& m_notebook;
+        Gtk::Box m_CardBox;
+        Gtk::Label m_LblTitulo;
+        
+        Gtk::ScrolledWindow m_ScrolledWindow;
+        Gtk::Box m_ListadoBox; 
+        
+        Gtk::Button m_BtnVolver;
+
+        void on_volver_clicked();
+        Gtk::Box* crear_tarjeta_eliminar(string nombre, string apellido, string tlf, string correo, long numero);
+};
+
 class VistaConsulta : public Gtk::Box {
     public:
         VistaConsulta(Gtk::Notebook& notebook);
