@@ -1,52 +1,78 @@
 #pragma once
 #include <gtkmm.h>
 #include <string>
+#include "negocios/TablaHash.h"
 
-#pragma once
-#include <gtkmm.h>
-#include <string>
+using std::string;
+
+extern TablaHash tabla;
+
+class VistaConsulta : public Gtk::Box {
+    public:
+        VistaConsulta(Gtk::Notebook& notebook);
+        
+        // Método que llamaremos para actualizar la lista leyendo la Tabla Hash
+        void cargar_contactos(); 
+
+    protected:
+        Gtk::Notebook& m_notebook;
+        
+        Gtk::Box m_CardBox; // Contenedor principal simulando el celular
+        Gtk::Label m_LblTitulo;
+        
+        // La ventana con Scroll para que aparezca la barra al bajar
+        Gtk::ScrolledWindow m_ScrolledWindow;
+        
+        // La caja vertical que irá DENTRO del scroll y contendrá todas las tarjetas
+        Gtk::Box m_ListadoBox; 
+        
+        Gtk::Button m_BtnVolver;
+
+        void on_volver_clicked();
+        
+        // Función "fábrica" que crea el diseño visual de un solo contacto
+        Gtk::Box* crear_tarjeta_contacto(string nombre, string apellido, string tlf, string correo);
+};
 
 class GestionarContactos : public Gtk::Box {
-public: 
-    GestionarContactos(Gtk::Notebook& notebook);
-protected:
-    Gtk::Notebook& m_notebook;
-    Gtk::Box m_CenterBox;
-    Gtk::Box m_CardBox;
-    Gtk::Label m_LblTitulo;
-    
-    Gtk::Button m_BtnAgregar;
-    Gtk::Button m_BtnModificar;
-    Gtk::Button m_BtnEliminar;
-    Gtk::Button m_BtnConsultar;
-    Gtk::Button m_BtnVolver;
+    public: 
+        GestionarContactos(Gtk::Notebook& notebook);
+    protected:
+        Gtk::Notebook& m_notebook;
+        Gtk::Box m_CenterBox;
+        Gtk::Box m_CardBox;
+        Gtk::Label m_LblTitulo;
+        
+        Gtk::Button m_BtnAgregar;
+        Gtk::Button m_BtnModificar;
+        Gtk::Button m_BtnEliminar;
+        Gtk::Button m_BtnConsultar;
+        Gtk::Button m_BtnVolver;
 
-    void on_volver_clicked();
+        void on_volver_clicked();
 };
 
 // 2. EL FORMULARIO (Agregar Contacto)
 class VistaGestion : public Gtk::Box {
-public:
-    VistaGestion(Gtk::Notebook& notebook);
-protected:
-    Gtk::Notebook& m_notebook;
-    Gtk::Box m_CenterBox;
-    Gtk::Box m_CardBox;
-    Gtk::Label m_LblTitulo;
-    Gtk::Label m_LblError;
+    public:
+        VistaGestion(Gtk::Notebook& notebook);
+    protected:
+        Gtk::Notebook& m_notebook;
+        Gtk::Box m_CardBox; 
+        Gtk::Label m_LblTitulo, m_LblError;
 
-    Gtk::Grid m_GridCampos;
-    Gtk::Entry m_EntryNombre;
-    Gtk::Entry m_EntryApellido;
-    Gtk::Entry m_EntryTlf;
-    Gtk::Entry m_EntryEmail;
+        Gtk::Label m_LblNombre, m_LblApellido, m_LblTlf, m_LblEmail, m_LblInfoBar;
+        Gtk::InfoBar m_InfoBar;
 
-    Gtk::Button m_BtnGuardar;
-    Gtk::Button m_BtnVolver;
-    Gtk::DropDown m_ComboPrefijo;
-    Gtk::Box m_BoxTelefono;
-    void on_guardar_clicked();
-    void on_volver_clicked();
+        Gtk::Grid m_GridCampos;
+        Gtk::Entry m_EntryNombre, m_EntryApellido, m_EntryTlf, m_EntryEmail, m_EntryPrefijo;
+        Gtk::Button m_BtnGuardar, m_BtnVolver;
+
+        void on_guardar_clicked();
+        void on_volver_clicked();
+        void mostrarError(string mensaje);
+        void mostrarExito(string mensaje);
+        void limpiarCampos();
 };
 
 class CrearContacto : public Gtk::Box {
@@ -178,7 +204,6 @@ class Interfaz : public Gtk::Window {
         Gtk::Button m_BtnRecientes; // Visualizar Recientes
         Gtk::Button m_BtnExportar;  // Exportar CSV
         Gtk::Button m_BtnSalir;     // Salir
-
         void on_salir_clicked();
 };
 

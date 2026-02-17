@@ -3,6 +3,9 @@
 #include <iostream>
 #include <string>
 
+
+TablaHash tabla;
+
 int main(int argc, char* argv[]) {
     auto app = Gtk::Application::create("Agenda de Contactos");
 

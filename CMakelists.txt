@@ -14,7 +14,11 @@ add_library(CapaInterfaz STATIC
 target_include_directories(CapaInterfaz PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_link_libraries(CapaInterfaz PRIVATE PkgConfig::GTKMM)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} 
+    main.cpp
+    presentacion/Interfaz.cpp
+    negocios/TablaHash.cpp
+)
 
 add_definitions(-D_HAS_STD_BYTE=0)
 add_compile_options(/wd4250)
@@ -24,13 +28,19 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     PkgConfig::GTKMM
 )
 
-
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${PROJECT_NAME}>/presentacion
+    # 1. Crea la carpeta base 'presentacion'
+    COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}>/presentacion"
 
+    # 2. Copia el archivo style.css
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${CMAKE_CURRENT_SOURCE_DIR}/presentacion/style.css"
     "$<TARGET_FILE_DIR:${PROJECT_NAME}>/presentacion/style.css"
 
-    COMMENT "Copiando style.css a la carpeta del ejecutable..."
+    # 3. Copia toda la carpeta 'assets' (donde está tu contacto.png)
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    "${CMAKE_CURRENT_SOURCE_DIR}/presentacion/assets"
+    "$<TARGET_FILE_DIR:${PROJECT_NAME}>/presentacion/assets"
+
+    COMMENT "Copiando recursos (CSS e imágenes) a la carpeta del ejecutable..."
 )

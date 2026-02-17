@@ -81,6 +81,13 @@ button:hover {
     background-color: #C28B4D;
 }
 
+.tarjeta-contacto {
+    background-color: #f8f9fa; /* Fondo gris claro tipo tarjeta */
+    border-radius: 12px;       /* Bordes redondeados */
+    border: 1px solid #dee2e6; /* Borde sutil */
+    padding: 10px;
+}
+
 /* 4. Lista */
 list {
     background-color: #FFFFFF;

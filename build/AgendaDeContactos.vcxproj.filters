@@ -4,6 +4,12 @@
     <ClCompile Include="C:\Users\josue\OneDrive\Desktop\proyecto 3 ED\Agenda-de-Contactos\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\josue\OneDrive\Desktop\proyecto 3 ED\Agenda-de-Contactos\presentacion\Interfaz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\josue\OneDrive\Desktop\proyecto 3 ED\Agenda-de-Contactos\negocios\TablaHash.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\josue\OneDrive\Desktop\proyecto 3 ED\Agenda-de-Contactos\CMakeLists.txt" />

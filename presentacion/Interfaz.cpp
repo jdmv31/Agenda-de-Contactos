@@ -1,7 +1,137 @@
+#if defined(_MSC_VER)
+    #pragma runtime_checks("s", off) // Desactiva comprobaciones de stack
+    #pragma runtime_checks("u", off) // Desactiva comprobaciones de variables no inicializadas
+#endif
+
 #include "Interfaz.h"
 #include <iostream>
 
 using std::string;
+
+VistaConsulta::VistaConsulta(Gtk::Notebook& notebook) 
+    : Gtk::Box(Gtk::Orientation::VERTICAL), m_notebook(notebook) {
+    
+    // Centramos toda la vista en la ventana principal
+    set_valign(Gtk::Align::CENTER);
+    set_halign(Gtk::Align::CENTER);
+    set_expand(true);
+
+    // Configuramos el contenedor que simulará la "pantalla del celular"
+    m_CardBox.set_orientation(Gtk::Orientation::VERTICAL);
+    m_CardBox.set_spacing(15);
+    m_CardBox.set_margin(20);
+    m_CardBox.add_css_class("card"); 
+
+    m_LblTitulo.set_markup("<span size='x-large' weight='bold'>Directorio de Contactos</span>");
+    m_LblTitulo.set_margin_bottom(10);
+
+    // --- CONFIGURACIÓN DEL SCROLL ---
+    // Le damos un tamaño fijo parecido a la proporción de un celular (ej. 350x450)
+    m_ScrolledWindow.set_size_request(350, 450);
+    m_ScrolledWindow.set_policy(Gtk::PolicyType::NEVER, Gtk::PolicyType::AUTOMATIC); // Scroll vertical automático
+    m_ScrolledWindow.set_has_frame(true);
+
+    // Configuramos la caja interna donde irán apilándose los contactos
+    m_ListadoBox.set_orientation(Gtk::Orientation::VERTICAL);
+    m_ListadoBox.set_spacing(10); // Espacio entre cada tarjeta de contacto
+    m_ListadoBox.set_margin(10);
+
+    // Metemos la lista dentro del Scroll (En GTK4 se usa set_child)
+    m_ScrolledWindow.set_child(m_ListadoBox);
+
+    // Botón de volver
+    m_BtnVolver.set_label("Volver al Menú");
+    m_BtnVolver.set_margin_top(10);
+
+    // Ensamblamos todo
+    m_CardBox.append(m_LblTitulo);
+    m_CardBox.append(m_ScrolledWindow);
+    m_CardBox.append(m_BtnVolver);
+
+    append(m_CardBox);
+
+    // Señales
+    m_BtnVolver.signal_clicked().connect(sigc::mem_fun(*this, &VistaConsulta::on_volver_clicked));
+
+    m_notebook.signal_switch_page().connect([this](Gtk::Widget* page, guint page_num) {
+        // Si la página que se está mostrando ahora mismo es esta vista (this)...
+        if (page == this) {
+            cargar_contactos(); // Recargamos los datos frescos de la Tabla Hash
+        }
+    });
+}
+
+void VistaConsulta::on_volver_clicked() {
+    m_notebook.set_current_page(0); // Vuelve al inicio
+}
+
+// ======================================================================
+// FÁBRICA DE TARJETAS DE CONTACTO (El diseño que pediste)
+// ======================================================================
+Gtk::Box* VistaConsulta::crear_tarjeta_contacto(string nombre, string apellido, string tlf, string correo) {
+    auto* tarjeta = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL);
+    tarjeta->set_spacing(15);
+    tarjeta->set_margin(10);
+
+    tarjeta->add_css_class("tarjeta-contacto"); 
+
+    auto* icono = Gtk::make_managed<Gtk::Image>();
+    icono->set("presentacion/assets/contacto.png");
+    icono->set_pixel_size(60);
+    icono->set_valign(Gtk::Align::CENTER);
+
+    // 3. La caja vertical para los textos (Derecha)
+    auto* cajaTextos = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::VERTICAL);
+    cajaTextos->set_spacing(3);
+    cajaTextos->set_valign(Gtk::Align::CENTER);
+
+    // Nombre y Apellido (Arriba, en negrita)
+    auto* lblNombre = Gtk::make_managed<Gtk::Label>();
+    lblNombre->set_markup("<span size='large' weight='bold'>" + nombre + " " + apellido + "</span>");
+    lblNombre->set_halign(Gtk::Align::START);
+
+    // Teléfono (En medio)
+    auto* lblTlf = Gtk::make_managed<Gtk::Label>();
+    lblTlf->set_markup("<span foreground='#555555'>📞 " + tlf + "</span>");
+    lblTlf->set_halign(Gtk::Align::START);
+
+    // Correo (Debajo)
+    auto* lblCorreo = Gtk::make_managed<Gtk::Label>();
+    lblCorreo->set_markup("<span foreground='#0066cc'>✉ " + correo + "</span>");
+    lblCorreo->set_halign(Gtk::Align::START);
+
+    // Ensamblamos los textos
+    cajaTextos->append(*lblNombre);
+    cajaTextos->append(*lblTlf);
+    cajaTextos->append(*lblCorreo);
+
+    // Ensamblamos la tarjeta completa
+    tarjeta->append(*icono);
+    tarjeta->append(*cajaTextos);
+
+    return tarjeta;
+}
+
+void VistaConsulta::cargar_contactos() {
+    // 1. LIMPIEZA: Eliminamos las tarjetas visuales anteriores para no duplicar
+    while (auto* child = m_ListadoBox.get_first_child()) {
+        m_ListadoBox.remove(*child);
+    }
+
+    // 2. RECORRIDO: Pedimos los datos frescos a la tabla
+    tabla.recorrerTabla([this](Nodo* contacto) {
+        std::string tlf_completo = "0" + std::to_string(contacto->numeral) + "-" + std::to_string(contacto->numeroTelefonico);
+
+        auto* nueva_tarjeta = crear_tarjeta_contacto(
+            contacto->nombre, 
+            contacto->apellido, 
+            tlf_completo, 
+            contacto->correo
+        );
+
+        m_ListadoBox.append(*nueva_tarjeta);
+    });
+}
 
 GestionarContactos::GestionarContactos(Gtk::Notebook& notebook) 
     : Gtk::Box(Gtk::Orientation::VERTICAL), m_notebook(notebook) {
@@ -18,7 +148,7 @@ GestionarContactos::GestionarContactos(Gtk::Notebook& notebook)
     m_BtnAgregar.set_label("Agregar Contacto");
     m_BtnModificar.set_label("Modificar Contacto");
     m_BtnEliminar.set_label("Eliminar Contacto");
-    m_BtnConsultar.set_label("Consultar Contacto");
+    m_BtnConsultar.set_label("Consultar Contactos");
     m_BtnVolver.set_label("Volver al Menú Principal");
 
     // Estilos (Usando tus clases CSS)
@@ -48,109 +178,184 @@ GestionarContactos::GestionarContactos(Gtk::Notebook& notebook)
     
     // Al darle a agregar, vamos a la página de VistaGestion (Página 2)
     m_BtnAgregar.signal_clicked().connect([this]{ m_notebook.set_current_page(2); });
+    m_BtnConsultar.signal_clicked().connect([this]{ m_notebook.set_current_page(6); });
 }
 
-void GestionarContactos::on_volver_clicked() { m_notebook.set_current_page(0); }
+void GestionarContactos::on_volver_clicked() {
+    m_notebook.set_current_page(0); 
+}
 
-
-// --- IMPLEMENTACIÓN VISTA AGREGAR (Sin dirección) ---
 VistaGestion::VistaGestion(Gtk::Notebook& notebook) 
     : Gtk::Box(Gtk::Orientation::VERTICAL), m_notebook(notebook) {
     
-    // 1. CENTRADO TOTAL
-    m_CenterBox.set_expand(true);
-    m_CenterBox.set_valign(Gtk::Align::CENTER);
-    m_CenterBox.set_halign(Gtk::Align::CENTER);
+    set_valign(Gtk::Align::CENTER);
+    set_halign(Gtk::Align::CENTER);
+    set_expand(true);
 
     m_CardBox.set_orientation(Gtk::Orientation::VERTICAL);
-    m_CardBox.set_spacing(15);
+    m_CardBox.set_spacing(20);
+    m_CardBox.set_margin(40);
+    m_CardBox.add_css_class("card"); // Por si usas estilos CSS
 
-    m_LblTitulo.set_text("Crear Nuevo Contacto");
+    m_LblTitulo.set_markup("<span size='x-large' weight='bold'>Crear Nuevo Contacto</span>");
+    m_LblTitulo.set_margin_bottom(10);
 
-    // 2. CONFIGURACIÓN DEL DROPDOWN (PREFIJOS)
-    // Usamos un modelo de strings explícito
-    auto lista_prefijos = Gtk::StringList::create({"0412", "0416", "0414", "0422", "0424", "0426"});
-    m_ComboPrefijo.set_model(lista_prefijos);
-    m_ComboPrefijo.set_selected(0);
+    // --- CONFIGURACIÓN DE ETIQUETAS ---
+    m_LblNombre.set_text("Nombre:");
+    m_LblNombre.set_halign(Gtk::Align::END);
     
-    // IMPORTANTE: Esto suele evitar el error de 'width' no inicializado en Windows
-    m_ComboPrefijo.set_size_request(100, -1); 
+    m_LblApellido.set_text("Apellido:");
+    m_LblApellido.set_halign(Gtk::Align::END);
+    
+    m_LblTlf.set_text("Teléfono:");
+    m_LblTlf.set_halign(Gtk::Align::END);
+    
+    m_LblEmail.set_text("Correo:");
+    m_LblEmail.set_halign(Gtk::Align::END);
 
-    // 3. CONTENEDOR DEL TELÉFONO
-    auto* boxTlfHorizontal = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL);
-    boxTlfHorizontal->set_spacing(8);
-    boxTlfHorizontal->append(m_ComboPrefijo);
-    boxTlfHorizontal->append(m_EntryTlf);
+    // --- CONFIGURACIÓN DE ENTRADAS ---
+    m_EntryPrefijo.set_placeholder_text("0412");
+    m_EntryPrefijo.set_max_length(4);
+    m_EntryPrefijo.set_size_request(60, -1);
+
+    m_EntryTlf.set_placeholder_text("1234567");
     m_EntryTlf.set_hexpand(true);
-    m_EntryTlf.set_placeholder_text("Número (Ej: 1234567)");
 
-    // 4. CONFIGURACIÓN DE LOS DEMÁS CAMPOS
-    m_EntryNombre.set_placeholder_text("Nombre");
-    m_EntryApellido.set_placeholder_text("Apellido");
-    m_EntryEmail.set_placeholder_text("Correo Electrónico");
+    // Contenedor horizontal para Prefijo + Número
+    auto* boxTlf = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL);
+    boxTlf->set_spacing(5);
+    boxTlf->append(m_EntryPrefijo);
+    boxTlf->append(m_EntryTlf);
 
-    // 5. GRID (Asegúrate de no repetir m_EntryTlf aquí abajo)
-    m_GridCampos.set_row_spacing(12);
-    m_GridCampos.set_column_spacing(12);
-    
-    m_GridCampos.attach(m_EntryNombre, 0, 0);
-    m_GridCampos.attach(m_EntryApellido, 1, 0);
-    m_GridCampos.attach(*boxTlfHorizontal, 0, 1, 2, 1); // Adjuntamos el Box, NO el entry solo
-    m_GridCampos.attach(m_EntryEmail, 0, 2, 2, 1);
+    // --- CONFIGURACIÓN DEL INFOBAR (GTK4 Corrección) ---
+    // Usamos get_content_area() en lugar de set_child()
+    m_InfoBar.add_child(m_LblInfoBar);    
+    m_InfoBar.set_show_close_button(true);
+    m_InfoBar.hide(); // Oculta por defecto
 
-    // 6. BOTONES
+    // Conectar señal de cierre
+    m_InfoBar.signal_response().connect([this](int){ m_InfoBar.hide(); });
+
+    // --- ORGANIZACIÓN EN EL GRID ---
+    m_GridCampos.set_row_spacing(15);
+    m_GridCampos.set_column_spacing(15);
+
+    // Fila 0: Nombre
+    m_GridCampos.attach(m_LblNombre, 0, 0);
+    m_GridCampos.attach(m_EntryNombre, 1, 0);
+
+    // Fila 1: Apellido
+    m_GridCampos.attach(m_LblApellido, 0, 1);
+    m_GridCampos.attach(m_EntryApellido, 1, 1);
+
+    // Fila 2: Teléfono (Label + Box con prefijo y número)
+    m_GridCampos.attach(m_LblTlf, 0, 2);
+    m_GridCampos.attach(*boxTlf, 1, 2);
+
+    // Fila 3: Email
+    m_GridCampos.attach(m_LblEmail, 0, 3);
+    m_GridCampos.attach(m_EntryEmail, 1, 3);
+
+    // --- BOTONES ---
     m_BtnGuardar.set_label("Guardar Contacto");
     m_BtnGuardar.add_css_class("boton-guardar");
+    m_BtnGuardar.set_margin_top(10);
+
     m_BtnVolver.set_label("Cancelar");
 
-    // 7. ARMAR INTERFAZ
+    // --- ARMADO FINAL (Orden secuencial correcto) ---
     m_CardBox.append(m_LblTitulo);
+    m_CardBox.append(m_InfoBar);     // <-- InfoBar se coloca justo debajo del título
     m_CardBox.append(m_GridCampos);
-    m_CardBox.append(m_LblError);
     m_CardBox.append(m_BtnGuardar);
     m_CardBox.append(m_BtnVolver);
 
-    m_CenterBox.append(m_CardBox);
-    append(m_CenterBox);
+    append(m_CardBox);
 
-    // 8. SEÑALES
-    m_BtnVolver.signal_clicked().connect([this]{ 
-        m_LblError.set_markup("");
-        m_notebook.set_current_page(1); 
-    });
-    
+    // --- SEÑALES ---
+    m_BtnVolver.signal_clicked().connect(sigc::mem_fun(*this, &VistaGestion::on_volver_clicked));
     m_BtnGuardar.signal_clicked().connect(sigc::mem_fun(*this, &VistaGestion::on_guardar_clicked));
+    // Reactivar el botón y ocultar el mensaje al empezar a escribir de nuevo
+    m_EntryNombre.signal_changed().connect([this]() {
+        if (!m_BtnGuardar.get_sensitive()) {
+            m_BtnGuardar.set_sensitive(true);
+            m_InfoBar.hide();
+        }
+    });
 }
-// ... (Implementaciones de on_guardar_clicked y on_volver_clicked se mantienen)
 
 void VistaGestion::on_volver_clicked() { 
-    m_LblError.set_markup(""); 
-    m_notebook.set_current_page(0); 
+    m_LblError.set_text(""); 
+    m_notebook.set_current_page(1); 
+}
+
+void VistaGestion::mostrarExito(string mensaje) {
+    m_LblInfoBar.set_markup("<span foreground='#2a9d8f' weight='bold'>Éxito: " + mensaje + "</span>");
+    m_InfoBar.set_message_type(Gtk::MessageType::INFO);
+    m_InfoBar.show();
+}
+
+void VistaGestion::limpiarCampos() {
+    m_EntryNombre.set_text("");
+    m_EntryApellido.set_text("");
+    m_EntryPrefijo.set_text("");
+    m_EntryTlf.set_text("");
+    m_EntryEmail.set_text("");
+}
+
+void VistaGestion::mostrarError(string mensaje) {
+    m_LblInfoBar.set_markup("<span foreground='red' weight='bold'>Error: " + mensaje + "</span>");
+    m_InfoBar.set_message_type(Gtk::MessageType::ERROR);
+    m_InfoBar.show();
 }
 
 void VistaGestion::on_guardar_clicked() {
     std::string nombre = m_EntryNombre.get_text();
-    std::string tlf = m_EntryTlf.get_text();
-
-    if (nombre.empty() || tlf.empty()) {
-        m_LblError.set_markup("<span color='#BC6C25' weight='bold'>ERROR: Nombre y Teléfono son obligatorios.</span>");
+    std::string apellido = m_EntryApellido.get_text();
+    std::string numeral = m_EntryPrefijo.get_text();
+    std::string telefono = m_EntryTlf.get_text();
+    std::string correo = m_EntryEmail.get_text();
+    if (nombre.empty()){
+        mostrarError("El nombre es obligatorio.");
         return;
     }
+    if (apellido.empty()){
+        mostrarError("El apellido es obligatorio.");
+        return;
+    }
+    if(numeral.empty()){
+        mostrarError("El numeral es obligatorio.");
+        return;
+    }
+    if (telefono.empty()){
+        mostrarError("El numero telefonico es obligatorio.");
+        return;
+    }
+    if (telefono.length() != 7){
+        mostrarError("El numero telefonico debe contener 7 numeros.");
+        return;
+    }
+    if (correo.find('@') == std::string::npos){
+        mostrarError("El correo es invalido, le falta el [@]");
+        return;
+    }
+    if (correo.empty()){
+        mostrarError("El correo es obligatorio.");
+        return;
+    }
+    m_InfoBar.hide();
+    tabla.agregarContacto(nombre, apellido, correo, std::stoi(numeral), std::stol(telefono));
+    m_BtnGuardar.set_sensitive(false);
+    limpiarCampos();
+    mostrarExito("Contacto guardado exitosamente.");
 
-    std::cout << "Guardando: " << nombre << " | Tlf: " << tlf << std::endl;
-    m_LblError.set_markup("<span color='#283618' weight='bold'>¡Contacto Guardado Exitosamente!</span>");
-    
-    m_EntryNombre.set_text("");
-    m_EntryApellido.set_text("");
-    m_EntryTlf.set_text("");
-    m_EntryEmail.set_text("");
-
-    Glib::signal_timeout().connect_once([this]() {        
-        m_LblError.set_markup("");
-        m_notebook.set_current_page(0);
-    }, 1500);
+    Glib::signal_timeout().connect([this]() -> bool {
+        m_InfoBar.hide();                  
+        m_BtnGuardar.set_sensitive(true);   
+        m_notebook.set_current_page(1);
+        return false; 
+    }, 2500);
 }
-
 // =========================================================
 // 2. IMPLEMENTACIÓN VISTA BÚSQUEDA
 // =========================================================
@@ -460,6 +665,10 @@ Interfaz::Interfaz() {
     // PÁGINA 5: Vista de Exportar
     auto* vistaExportar = Gtk::make_managed<VistaExportar>(m_Notebook);
     m_Notebook.append_page(*vistaExportar, "Exportar");
+
+        // PÁGINA 6: Vista de Consulta
+    auto* vistaConsulta = Gtk::make_managed<VistaConsulta>(m_Notebook);
+    m_Notebook.append_page(*vistaConsulta, "Consultar");
 
     // 3. CONEXIONES DE BOTONES DEL MENÚ PRINCIPAL (Página 0)
     m_BtnGestion.signal_clicked().connect([this]{ 

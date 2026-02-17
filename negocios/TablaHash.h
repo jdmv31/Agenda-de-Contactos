@@ -1,13 +1,16 @@
 #pragma once
 #include <string>
+#include <functional>
 #define MAXELEMENTOS 10
+
 
 using std::string;
 
 struct Nodo{
     string nombre;
+    string apellido;
     string correo;
-    short numeral;
+    int numeral;
     long numeroTelefonico;
     Nodo* sig;
 };
@@ -19,6 +22,7 @@ class TablaHash{
         TablaHash();
         ~TablaHash();
         int hashing (long telefono);
-        void agregarContacto(string nombre, string correo, short numeral, long numero);
-        Nodo* crearNodo(string nombre, string correo, short numeral, long numero);
+        void agregarContacto(string nombre, string apellido, string correo, int numeral, long numero);
+        Nodo* crearNodo(string nombre, string apellido, string correo, int numeral, long numero);
+        void recorrerTabla(std::function<void(Nodo*)> accion);
 };
