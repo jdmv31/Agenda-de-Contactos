@@ -7,17 +7,30 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(GTKMM REQUIRED IMPORTED_TARGET gtkmm-4.0)
 
+# Generación de la ruta para los datos
+file(TO_CMAKE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/datos" RUTA_LIMPIA)
+file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/PathConfig.h" 
+     "#define RUTA_DATOS \"${RUTA_LIMPIA}\"")
+
+# --- LIBRERÍA DE INTERFAZ ---
 add_library(CapaInterfaz STATIC 
     presentacion/Interfaz.cpp
 )
 
-target_include_directories(CapaInterfaz PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+# CORRECCIÓN 1: La librería también necesita acceso a PathConfig.h
+target_include_directories(CapaInterfaz PUBLIC 
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_BINARY_DIR}
+)
 target_link_libraries(CapaInterfaz PRIVATE PkgConfig::GTKMM)
 
+# --- EJECUTABLE PRINCIPAL ---
 add_executable(${PROJECT_NAME} 
     main.cpp
     presentacion/Interfaz.cpp
     negocios/TablaHash.cpp
+    negocios/Lista.cpp
+    datos/Ficheros.cpp
 )
 
 add_definitions(-D_HAS_STD_BYTE=0)
@@ -28,19 +41,19 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     PkgConfig::GTKMM
 )
 
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    # 1. Crea la carpeta base 'presentacion'
-    COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}>/presentacion"
+# CORRECCIÓN 2: El ejecutable necesita acceso a PathConfig.h para compilar Ficheros.cpp
+target_include_directories(${PROJECT_NAME} PRIVATE 
+    ${CMAKE_CURRENT_BINARY_DIR}
+)
 
-    # 2. Copia el archivo style.css
+# Comandos post-compilación para recursos
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory "$<TARGET_FILE_DIR:${PROJECT_NAME}>/presentacion"
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${CMAKE_CURRENT_SOURCE_DIR}/presentacion/style.css"
     "$<TARGET_FILE_DIR:${PROJECT_NAME}>/presentacion/style.css"
-
-    # 3. Copia toda la carpeta 'assets' (donde está tu contacto.png)
     COMMAND ${CMAKE_COMMAND} -E copy_directory
     "${CMAKE_CURRENT_SOURCE_DIR}/presentacion/assets"
     "$<TARGET_FILE_DIR:${PROJECT_NAME}>/presentacion/assets"
-
     COMMENT "Copiando recursos (CSS e imágenes) a la carpeta del ejecutable..."
 )

@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
 #include <functional>
+#include "datos/Ficheros.h"
 #define MAXELEMENTOS 10
-
 
 using std::string;
 

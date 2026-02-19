@@ -1,6 +1,7 @@
 #include "Interfaz.h"
 #include <iostream>
 
+
 using std::string;
 
 
@@ -936,18 +937,46 @@ VistaExportar::VistaExportar(Gtk::Notebook& notebook)
 
 void VistaExportar::cargar_datos() {
     auto buffer = m_TxtResContenido.get_buffer();
-    buffer->set_text("ID, Nombre, Telefono, Email\n1, Juan, 0414111, j@j.com\n2, Pedro, 0424222, p@p.com\n");
+    
+    std::string contenido = "Nombre, Apellido, Correo, Numeral, Telefono\n";
+    int contador = 0;
+
+    // Recorremos la tabla y por cada nodo agregamos sus datos al string 'contenido'
+    tabla.recorrerTabla([&contenido, &contador](Nodo* contacto) {
+        contenido += contacto->nombre + ", " + 
+                     contacto->apellido + ", " + 
+                     contacto->correo + ", " + 
+                     std::to_string(contacto->numeral) + ", " + 
+                     std::to_string(contacto->numeroTelefonico) + "\n";
+        contador++;
+    });
+
+    if (contador == 0) {
+        buffer->set_text("");
+        m_LblMensaje.set_markup("<span foreground='red'>No hay contactos en la tabla hash para exportar.</span>");
+        m_BtnExportar.set_sensitive(false);
+    } else {
+        buffer->set_text(contenido);
+        m_LblMensaje.set_markup("");
+        m_BtnExportar.set_sensitive(true);
+    }
+}
+
+void VistaExportar::on_exportar_clicked() { 
+    bool exito = gestorFicheros.exportarCSV(tabla);
+    
+    if (exito) {
+        m_LblMensaje.set_markup("<span foreground='green'>¡Datos exportados exitosamente a contactos.csv!</span>");
+    } else {
+        m_LblMensaje.set_markup("<span foreground='red'>Error al intentar exportar el archivo.</span>");
+    }
 }
 
 void VistaExportar::on_volver_clicked() { 
     m_LblMensaje.set_markup("");
+    m_TxtResContenido.get_buffer()->set_text(""); // Limpia la vista al salir
     m_notebook.set_current_page(0); 
 }
-
-void VistaExportar::on_exportar_clicked() {
-    m_LblMensaje.set_markup("<span color='#283618' weight='bold'>Archivo generado correctamente.</span>");
-}
-
 // =========================================================
 // IMPLEMENTACIÓN INTERFAZ PRINCIPAL
 // =========================================================

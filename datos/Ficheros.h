@@ -1,5 +1,6 @@
 #pragma once
-#include "negocios/TablaHash.h"
+
+class TablaHash;
 
 class GestorArchivos{
     private:

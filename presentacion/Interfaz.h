@@ -2,10 +2,12 @@
 #include <gtkmm.h>
 #include <string>
 #include "negocios/TablaHash.h"
+#include "datos/Ficheros.h"
 
 using std::string;
 
 extern TablaHash tabla;
+extern GestorArchivos gestorFicheros;
 
 // =========================================================
 // CLASE: VISTA MODIFICAR
