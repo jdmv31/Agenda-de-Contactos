@@ -6,6 +6,7 @@
 
 TablaHash tabla;
 GestorArchivos gestorFicheros;
+Lista contactosRecientes;
 
 int main(int argc, char* argv[]) {
     auto app = Gtk::Application::create("Agenda de Contactos");

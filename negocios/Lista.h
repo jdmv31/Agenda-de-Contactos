@@ -4,24 +4,24 @@
 
 using std::string;
 
-struct Nodo{
+struct Nodo2{
     string nombre;
     string apellido;
     int numeral;
     long telefono;
     string accion;
-    Nodo* sig;
+    Nodo2* sig;
 };
 
 class Lista{
     private:
-        Nodo* heap;
-        Nodo* actual;
+        Nodo2* heap;
+        Nodo2* actual;
         int cantOperaciones;
     public:
         Lista();
         ~Lista();
         void insertarOperacion(string nombre, string apellido, int numeral, long telefono, string accion);
-        Nodo* crearNodo(string nombre, string apellido, int numeral, long telefono, string accion);
-        void recorrerLista(std::function<void(Nodo*)> accion);
+        Nodo2* crearNodo(string nombre, string apellido, int numeral, long telefono, string accion);
+        void recorrerLista(std::function<void(Nodo2*)> accion);
 };

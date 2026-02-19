@@ -8,15 +8,15 @@ Lista::Lista(){
 Lista::~Lista(){
     actual = heap;
     while (actual != nullptr){
-        Nodo* aux = actual;
+        Nodo2* aux = actual;
         delete aux;
         actual = actual->sig;
     }
     actual = heap = nullptr;
 }
 
-Nodo* Lista::crearNodo(string nombre, string apellido, int numeral, long telefono, string accion){
-    Nodo* nuevonodo = new Nodo;
+Nodo2* Lista::crearNodo(string nombre, string apellido, int numeral, long telefono, string accion){
+    Nodo2* nuevonodo = new Nodo2;
     nuevonodo->nombre = nombre;
     nuevonodo->apellido = apellido;
     nuevonodo->numeral = numeral;
@@ -27,7 +27,7 @@ Nodo* Lista::crearNodo(string nombre, string apellido, int numeral, long telefon
 }
 
 void Lista::insertarOperacion(string nombre, string apellido, int numeral, long telefono, string accion){
-    Nodo* nuevo = crearNodo(nombre,apellido,numeral,telefono,accion);
+    Nodo2* nuevo = crearNodo(nombre,apellido,numeral,telefono,accion);
     if (heap == nullptr)
         heap = nuevo;
     else{
@@ -36,7 +36,7 @@ void Lista::insertarOperacion(string nombre, string apellido, int numeral, long 
     }
 }
 
-void Lista::recorrerLista(std::function<void(Nodo*)> accion){
+void Lista::recorrerLista(std::function<void(Nodo2*)> accion){
     actual = heap;
     while (actual != nullptr){
         accion(actual);

@@ -3,11 +3,14 @@
 #include <string>
 #include "negocios/TablaHash.h"
 #include "datos/Ficheros.h"
+#include "negocios/Lista.h"
 
 using std::string;
 
 extern TablaHash tabla;
 extern GestorArchivos gestorFicheros;
+extern Lista contactosRecientes;
+
 
 // =========================================================
 // CLASE: VISTA MODIFICAR
@@ -44,8 +47,9 @@ class VistaModificar : public Gtk::Box {
         Gtk::Button m_BtnGuardar;
         Gtk::Button m_BtnCancelarEdicion;
 
-        // Variable para recordar qué contacto estamos editando
         long m_numeroActual; 
+        int numeral;
+        long numeroTelefonico;
 
         // Métodos
         void on_volver_menu_clicked();
@@ -70,6 +74,8 @@ class VistaEliminar : public Gtk::Box {
         Gtk::Box m_ListadoBox; 
         
         Gtk::Button m_BtnVolver;
+
+        bool contactoEliminado;
 
         void on_volver_clicked();
         Gtk::Box* crear_tarjeta_eliminar(string nombre, string apellido, string tlf, string correo, long numero);
@@ -212,22 +218,19 @@ class VistaRecientes : public Gtk::Box {
 
     protected:
         Gtk::Notebook& m_notebook;
-        Gtk::Box m_CenterBox;
         Gtk::Box m_CardBoxResultados;
-
         Gtk::Label m_LblResTitulo;
-        Gtk::Label m_LblTotal;
         
-        // Slots para los 3 últimos
-        Gtk::Label m_LblReciente1;
-        Gtk::Label m_LblReciente2;
-        Gtk::Label m_LblReciente3;
+        // Elementos dinámicos en vez de labels fijos
+        Gtk::ScrolledWindow m_ScrolledWindow;
+        Gtk::Box m_ListadoBox; 
 
         Gtk::Button m_BtnVolver;
 
         void on_volver_clicked();
-};
 
+        Gtk::Box* crear_tarjeta_reciente(std::string nombre, std::string apellido, std::string tlf, std::string accion);
+};
 // =========================================================
 // CLASE 4: VISTA EXPORTAR / LISTADO COMPLETO
 // =========================================================

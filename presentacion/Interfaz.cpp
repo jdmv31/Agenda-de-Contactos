@@ -1,7 +1,6 @@
 #include "Interfaz.h"
 #include <iostream>
 
-
 using std::string;
 
 
@@ -15,6 +14,9 @@ VistaModificar::VistaModificar(Gtk::Notebook& notebook)
     m_CenterBox.set_expand(true);
     m_CenterBox.set_valign(Gtk::Align::CENTER);
     m_CenterBox.set_halign(Gtk::Align::CENTER);
+    numeral = 0;
+    numeroTelefonico = 0;
+
 
     // ==========================================
     // CONFIGURACIÓN PANEL 1: LISTA
@@ -146,7 +148,7 @@ void VistaModificar::on_guardar_edicion_clicked() {
 
     // 1. Guardamos los cambios en la Tabla Hash
     tabla.modificarContacto(m_numeroActual, nNombre, nApellido, nCorreo);
-
+    contactosRecientes.insertarOperacion(nNombre,nApellido,numeral,numeroTelefonico,"Contacto Modificado");
     // 2. Bloqueamos los botones para que el usuario no toque nada mientras espera
     m_BtnGuardar.set_sensitive(false);
     m_BtnCancelarEdicion.set_sensitive(false);
@@ -218,7 +220,8 @@ Gtk::Box* VistaModificar::crear_tarjeta_modificar(std::string nombre, std::strin
         m_EntryApellido.set_text(apellido);
         m_EntryEmail.set_text(correo);
         m_LblTlfFijo.set_markup("<span foreground='#555'>Teléfono asociado: <b>" + tlf + "</b></span>");
-
+        this->numeral = std::stoi(tlf);
+        this->numeroTelefonico = numero_real;
         // Cambiamos la vista
         m_CenterBox.remove(m_PanelLista);
         m_CenterBox.append(m_PanelEdicion);
@@ -262,6 +265,7 @@ VistaEliminar::VistaEliminar(Gtk::Notebook& notebook)
     set_valign(Gtk::Align::CENTER);
     set_halign(Gtk::Align::CENTER);
     set_expand(true);
+    contactoEliminado = false;
 
     m_CardBox.set_orientation(Gtk::Orientation::VERTICAL);
     m_CardBox.set_spacing(15);
@@ -351,15 +355,21 @@ Gtk::Box* VistaEliminar::crear_tarjeta_eliminar(string nombre, string apellido, 
   
         dialog->signal_response().connect([this, dialog, numero](int response_id) {
             if (response_id == Gtk::ResponseType::YES) {
-                if (tabla.eliminarContacto(numero)) 
+                if (tabla.eliminarContacto(numero)){
+                    this->contactoEliminado = true;
                     cargar_contactos();
+                }
             }
             delete dialog; 
         });
         
         dialog->show();
     });
+    if (contactoEliminado)
+        contactosRecientes.insertarOperacion(nombre,apellido,std::stoi(tlf),numero,"Contacto Eliminado");
 
+    contactoEliminado = false;
+    
     tarjeta->append(*icono);
     tarjeta->append(*cajaTextos);
     tarjeta->append(*btnEliminar);
@@ -719,6 +729,7 @@ void VistaGestion::on_guardar_clicked() {
     m_BtnGuardar.set_sensitive(false);
     limpiarCampos();
     mostrarExito("Contacto guardado exitosamente.");
+    contactosRecientes.insertarOperacion(nombre,apellido,std::stoi(numeral),std::stol(telefono),"Contacto Agregado");
 
     Glib::signal_timeout().connect([this]() -> bool {
         m_InfoBar.hide();                  
@@ -834,53 +845,112 @@ void VistaBusqueda::on_buscar_clicked() {
     m_CenterBox.append(m_CardBoxResultados);
 }
 
-// =========================================================
-// 3. IMPLEMENTACIÓN VISTA RECIENTES
-// =========================================================
 VistaRecientes::VistaRecientes(Gtk::Notebook& notebook) 
     : Gtk::Box(Gtk::Orientation::VERTICAL), m_notebook(notebook) 
 {
-    // Configuración m_CenterBox
-    m_CenterBox.set_orientation(Gtk::Orientation::VERTICAL);
-    m_CenterBox.set_expand(true);
-    m_CenterBox.set_valign(Gtk::Align::FILL);
+    set_valign(Gtk::Align::CENTER);
+    set_halign(Gtk::Align::CENTER);
+    set_expand(true);
 
     m_CardBoxResultados.set_orientation(Gtk::Orientation::VERTICAL);
-    m_CardBoxResultados.set_spacing(10);
-    m_CardBoxResultados.set_margin(40);
-    m_CardBoxResultados.set_valign(Gtk::Align::CENTER);
-    m_CardBoxResultados.set_halign(Gtk::Align::CENTER);
+    m_CardBoxResultados.set_spacing(15);
+    m_CardBoxResultados.set_margin(20);
+    m_CardBoxResultados.add_css_class("card"); 
 
-    m_LblResTitulo.set_text("Contactos Recientes");
-    m_LblResTitulo.set_margin_bottom(15);
+    m_LblResTitulo.set_markup("<span size='x-large' weight='bold'>Actividad Reciente</span>");
+    m_LblResTitulo.set_margin_bottom(10);
 
-    m_LblTotal.set_markup("<b>Total Registrados:</b> 4 Contactos");
-    m_LblReciente1.set_text("1. Juan Perez (Hoy 10:00 AM)");
-    m_LblReciente2.set_text("2. Ana Gomez (Ayer)");
-    m_LblReciente3.set_text("3. Carlos Ruiz (Hace 2 días)");
+    // Configuración del contenedor de la lista con Scroll
+    m_ScrolledWindow.set_size_request(350, 450);
+    m_ScrolledWindow.set_policy(Gtk::PolicyType::NEVER, Gtk::PolicyType::AUTOMATIC);
+    m_ScrolledWindow.set_has_frame(true);
+
+    m_ListadoBox.set_orientation(Gtk::Orientation::VERTICAL);
+    m_ListadoBox.set_spacing(10);
+    m_ListadoBox.set_margin(10);
+
+    m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolver.set_label("Volver al Menú");
+    m_BtnVolver.set_margin_top(10);
 
+    // Ensamblaje
     m_CardBoxResultados.append(m_LblResTitulo);
-    m_CardBoxResultados.append(m_LblTotal);
-    
-    auto separador = Gtk::make_managed<Gtk::Separator>(Gtk::Orientation::HORIZONTAL);
-    m_CardBoxResultados.append(*separador);
-    
-    m_CardBoxResultados.append(m_LblReciente1);
-    m_CardBoxResultados.append(m_LblReciente2);
-    m_CardBoxResultados.append(m_LblReciente3);
+    m_CardBoxResultados.append(m_ScrolledWindow);
     m_CardBoxResultados.append(m_BtnVolver);
 
-    // CORRECCIÓN: append
-    m_CenterBox.append(m_CardBoxResultados);
-    append(m_CenterBox);
+    append(m_CardBoxResultados);
 
     m_BtnVolver.signal_clicked().connect(sigc::mem_fun(*this, &VistaRecientes::on_volver_clicked));
+
+    // RECARGA AUTOMÁTICA: Recargar tarjetas al entrar en la pestaña
+    m_notebook.signal_switch_page().connect([this](Gtk::Widget* page, guint page_num) {
+        if (page == this) {
+            actualizar_datos();
+        }
+    });
+}
+
+Gtk::Box* VistaRecientes::crear_tarjeta_reciente(string nombre, string apellido, string tlf, string accion) {
+    auto* tarjeta = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL);
+    tarjeta->set_spacing(15);
+    tarjeta->set_margin(10);
+    tarjeta->add_css_class("tarjeta-contacto"); 
+
+    auto* icono = Gtk::make_managed<Gtk::Image>();
+    icono->set("presentacion/assets/contacto.png");
+    icono->set_pixel_size(50);
+    icono->set_valign(Gtk::Align::CENTER);
+
+    auto* cajaTextos = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::VERTICAL);
+    cajaTextos->set_spacing(3);
+    cajaTextos->set_valign(Gtk::Align::CENTER);
+    cajaTextos->set_hexpand(true);
+
+    // Color condicional basado en la acción
+    std::string colorAccion = "#023e8a"; // Azul oscuro genérico
+    if (accion == "Contacto Agregado" || accion == "Insertado") colorAccion = "#2a9d8f"; // Verde
+    else if (accion == "Contacto Eliminado") colorAccion = "#d62828"; // Rojo
+    else if (accion == "Contacto Modificado") colorAccion = "#e9c46a"; // Amarillo oscuro
+
+    auto* lblAccion = Gtk::make_managed<Gtk::Label>();
+    lblAccion->set_markup("<span foreground='" + colorAccion + "' weight='bold'>" + accion + "</span>");
+    lblAccion->set_halign(Gtk::Align::START);
+
+    auto* lblNombre = Gtk::make_managed<Gtk::Label>();
+    lblNombre->set_markup("<span size='large' weight='bold'>" + nombre + " " + apellido + "</span>");
+    lblNombre->set_halign(Gtk::Align::START);
+
+    auto* lblTlf = Gtk::make_managed<Gtk::Label>();
+    lblTlf->set_markup("<span foreground='#555555'>📞 " + tlf + "</span>");
+    lblTlf->set_halign(Gtk::Align::START);
+
+    cajaTextos->append(*lblAccion);
+    cajaTextos->append(*lblNombre);
+    cajaTextos->append(*lblTlf);
+
+    tarjeta->append(*icono);
+    tarjeta->append(*cajaTextos);
+
+    return tarjeta;
 }
 
 void VistaRecientes::actualizar_datos() {
-    // Backend
+    while (auto* child = m_ListadoBox.get_first_child()) {
+        m_ListadoBox.remove(*child);
+    }
+
+    contactosRecientes.recorrerLista([this](Nodo2* operacion) {
+        std::string tlf_completo = "0" + std::to_string(operacion->numeral) + "-" + std::to_string(operacion->telefono);
+        
+        auto* tarjeta = crear_tarjeta_reciente(
+            operacion->nombre, 
+            operacion->apellido, 
+            tlf_completo, 
+            operacion->accion
+        );
+        m_ListadoBox.append(*tarjeta);
+    });
 }
 
 void VistaRecientes::on_volver_clicked() { 
