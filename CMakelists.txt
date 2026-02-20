@@ -57,3 +57,4 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     "$<TARGET_FILE_DIR:${PROJECT_NAME}>/presentacion/assets"
     COMMENT "Copiando recursos (CSS e imágenes) a la carpeta del ejecutable..."
 )
+

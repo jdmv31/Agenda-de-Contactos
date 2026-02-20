@@ -37,6 +37,7 @@ VistaModificar::VistaModificar(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolverMenu.set_label("Volver al Menú");
+    m_BtnVolverMenu.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolverMenu.set_hexpand(true);
 
     m_PanelLista.append(m_LblTituloLista);
@@ -83,10 +84,11 @@ VistaModificar::VistaModificar(Gtk::Notebook& notebook)
     m_LblTlfFijo.set_margin_bottom(10);
 
     m_BtnGuardar.set_label("Guardar Cambios");
-    m_BtnGuardar.add_css_class("boton-guardar");
+    m_BtnGuardar.add_css_class("boton-guardar"); // <-- CLASE AZUL
     m_BtnGuardar.set_hexpand(true);
     
     m_BtnCancelarEdicion.set_label("Cancelar");
+    m_BtnCancelarEdicion.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnCancelarEdicion.set_hexpand(true);
 
     m_PanelEdicion.append(m_LblTituloEdicion);
@@ -195,6 +197,7 @@ Gtk::Box* VistaModificar::crear_tarjeta_modificar(std::string nombre, std::strin
 
     auto* btnEditar = Gtk::make_managed<Gtk::Button>();
     btnEditar->set_valign(Gtk::Align::CENTER);
+    btnEditar->add_css_class("boton-filtro"); // <-- CLASE AZUL PARA EL LAPICITO
 
     auto* iconoEditar = Gtk::make_managed<Gtk::Image>();
     iconoEditar->set("presentacion/assets/editar.png");
@@ -264,6 +267,7 @@ VistaEliminar::VistaEliminar(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolver.set_label("Volver al Menú");
+    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolver.set_margin_top(10);
     m_BtnVolver.set_hexpand(true);
 
@@ -330,6 +334,7 @@ Gtk::Box* VistaEliminar::crear_tarjeta_eliminar(string nombre, string apellido, 
     auto* btnEliminar = Gtk::make_managed<Gtk::Button>();
     btnEliminar->set_icon_name("user-trash-symbolic"); 
     btnEliminar->set_valign(Gtk::Align::CENTER);
+    btnEliminar->add_css_class("boton-volver"); // <-- CLASE ROJA PARA LA PAPELERA
     
     btnEliminar->signal_clicked().connect([this, nombre, apellido, tlf, numero]() {
         auto* dialog = new Gtk::MessageDialog(
@@ -409,6 +414,7 @@ VistaConsulta::VistaConsulta(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolver.set_label("Volver al Menú");
+    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolver.set_margin_top(10);
     m_BtnVolver.set_hexpand(true);
 
@@ -512,6 +518,7 @@ GestionarContactos::GestionarContactos(Gtk::Notebook& notebook)
     m_BtnModificar.add_css_class("boton-filtro");
     m_BtnEliminar.add_css_class("boton-filtro");
     m_BtnConsultar.add_css_class("boton-filtro");
+    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
 
     m_BtnAgregar.set_hexpand(true);
     m_BtnModificar.set_hexpand(true);
@@ -558,7 +565,7 @@ VistaGestion::VistaGestion(Gtk::Notebook& notebook)
     m_CardBox.set_halign(Gtk::Align::FILL);
 
     m_LblTitulo.set_markup("<span size='x-large' weight='bold'>Crear Nuevo Contacto</span>");
-    m_LblTitulo.set_margin_bottom(10);
+    m_LblTitulo.set_margin_bottom(15);
 
     m_LblNombre.set_text("Nombre:");
     m_LblNombre.set_halign(Gtk::Align::END);
@@ -577,6 +584,15 @@ VistaGestion::VistaGestion(Gtk::Notebook& notebook)
     
     m_EntryTlf.set_placeholder_text("1234567");
     m_EntryTlf.set_hexpand(true);
+
+    m_EntryNombre.set_placeholder_text("Ej: Juan");
+    m_EntryNombre.set_hexpand(true);
+    
+    m_EntryApellido.set_placeholder_text("Ej: Pérez");
+    m_EntryApellido.set_hexpand(true);
+    
+    m_EntryEmail.set_placeholder_text("ejemplo@correo.com");
+    m_EntryEmail.set_hexpand(true);
 
     auto* boxTlf = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL);
     boxTlf->set_spacing(5);
@@ -611,6 +627,7 @@ VistaGestion::VistaGestion(Gtk::Notebook& notebook)
     m_BtnGuardar.set_hexpand(true);
 
     m_BtnVolver.set_label("Cancelar");
+    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolver.set_hexpand(true);
 
     m_CardBox.append(m_LblTitulo);
@@ -711,10 +728,12 @@ VistaBusqueda::VistaBusqueda(Gtk::Notebook& notebook)
     m_CardBox.set_margin_end(40);
     m_CardBox.set_valign(Gtk::Align::CENTER);
     m_CardBox.set_halign(Gtk::Align::FILL);
-    
-    m_LblTitulo.set_text("Buscar en la Agenda");
+
+     // Usamos set_markup para darle tamaño (x-large) y negrita (bold) al título
+    m_LblTitulo.set_markup("<span size='x-large' weight='bold' color='#383893'>Buscar en la Agenda</span>");
     m_LblTitulo.set_margin_bottom(10);
-    m_LblInstruccion.set_markup("Ingrese Nombre o Teléfono:");
+    m_LblInstruccion.set_markup("<span size='large'>Ingrese Nombre o Teléfono:</span>");
+    m_LblInstruccion.set_halign(Gtk::Align::START);
     
     m_EntryKeyword.set_placeholder_text("Ej: Maria");
     m_EntryKeyword.set_hexpand(true);
@@ -726,6 +745,7 @@ VistaBusqueda::VistaBusqueda(Gtk::Notebook& notebook)
     m_BtnBuscar.set_hexpand(true);
 
     m_BtnVolver.set_label("Volver");
+    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolver.set_hexpand(true);
 
     m_CardBox.append(m_LblTitulo);
@@ -757,6 +777,7 @@ VistaBusqueda::VistaBusqueda(Gtk::Notebook& notebook)
     m_BtnNuevaBusqueda.set_hexpand(true);
 
     m_BtnIrMenu.set_label("Volver al Menú");
+    m_BtnIrMenu.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnIrMenu.set_hexpand(true);
 
     m_CardBoxResultados.append(m_LblResTitulo);
@@ -830,6 +851,7 @@ VistaRecientes::VistaRecientes(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolver.set_label("Volver al Menú");
+    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolver.set_margin_top(10);
     m_BtnVolver.set_hexpand(true);
 
@@ -924,7 +946,7 @@ VistaExportar::VistaExportar(Gtk::Notebook& notebook)
     m_CardBoxResultados.set_valign(Gtk::Align::FILL);
     m_CardBoxResultados.set_halign(Gtk::Align::FILL);
 
-    m_LblTitulo.set_text("Exportar Datos");
+    m_LblTitulo.set_markup("<span size='x-large' weight='bold' color='#383893'>Exportar Datos</span>");
 
     m_TxtResContenido.set_editable(false);
     m_TxtResContenido.set_monospace(true);
@@ -940,14 +962,15 @@ VistaExportar::VistaExportar(Gtk::Notebook& notebook)
     m_BtnExportar.set_hexpand(true);
 
     m_BtnVolver.set_label("Volver");
+    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolver.set_hexpand(true);
 
     m_LblMensaje.set_markup("");
 
     m_CardBoxResultados.append(m_LblTitulo);
     m_CardBoxResultados.append(m_ScrollRes);
+    m_CardBoxResultados.append(m_LblMensaje); 
     m_CardBoxResultados.append(m_BtnExportar);
-    m_CardBoxResultados.append(m_LblMensaje);
     m_CardBoxResultados.append(m_BtnVolver);
 
     m_CenterBox.append(m_CardBoxResultados);
@@ -1000,7 +1023,8 @@ void VistaExportar::on_volver_clicked() {
 Interfaz::Interfaz() {
 
     set_title("Agenda de Contactos");
-    set_default_size(600, 900); 
+    set_default_size(700, 1050); 
+
 
     auto css_provider = Gtk::CssProvider::create();
     try {
@@ -1057,7 +1081,7 @@ Interfaz::Interfaz() {
 
     m_BtnRecientes.set_label("Visualizar Recientes");
     m_BtnRecientes.add_css_class("boton-filtro"); 
-    m_BtnRecientes.add_css_class("favorito"); 
+    // SE ELIMINÓ la clase "favorito" de aquí para que tenga borde azul y no rojo.
     m_BtnRecientes.set_hexpand(true);
 
     m_BtnExportar.set_label("Exportar Datos a CSV");
@@ -1065,6 +1089,7 @@ Interfaz::Interfaz() {
     m_BtnExportar.set_hexpand(true);
 
     m_BtnSalir.set_label("Salir del Sistema");
+    m_BtnSalir.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnSalir.set_hexpand(true);
 
     m_MenuContainer.append(m_titulo_principal);
@@ -1116,9 +1141,12 @@ Interfaz::Interfaz() {
     m_PhoneScreen.append(m_Notebook); 
     m_PhoneFrame.append(m_PhoneScreen);
     set_child(m_PhoneFrame);
+
 }
 
-Interfaz::~Interfaz() {}
+
+Interfaz::~Interfaz() {
+}
 
 void Interfaz::on_salir_clicked() { 
     set_visible(false); 
