@@ -1,0 +1,4 @@
+pepe|el mago|426|1234567|Contacto Agregado|
+pedro|sexin|414|8931079|Contacto Modificado|
+pedro|pedrin|414|8931079|Contacto Agregado|
+josue|medina|412|8775191|Contacto Agregado|

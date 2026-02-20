@@ -76,6 +76,9 @@ class VistaEliminar : public Gtk::Box {
         Gtk::Button m_BtnVolver;
 
         bool contactoEliminado;
+        Gtk::InfoBar m_InfoBar;
+        Gtk::Label m_LblInfoBar;
+        void mostrarExito(std::string mensaje);
 
         void on_volver_clicked();
         Gtk::Box* crear_tarjeta_eliminar(string nombre, string apellido, string tlf, string correo, long numero);

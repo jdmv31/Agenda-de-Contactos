@@ -149,6 +149,9 @@ void VistaModificar::on_guardar_edicion_clicked() {
     // 1. Guardamos los cambios en la Tabla Hash
     tabla.modificarContacto(m_numeroActual, nNombre, nApellido, nCorreo);
     contactosRecientes.insertarOperacion(nNombre,nApellido,numeral,numeroTelefonico,"Contacto Modificado");
+    gestorFicheros.guardarLista(contactosRecientes);
+    gestorFicheros.guardarOperaciones();
+    gestorFicheros.guardarDatos(tabla);
     // 2. Bloqueamos los botones para que el usuario no toque nada mientras espera
     m_BtnGuardar.set_sensitive(false);
     m_BtnCancelarEdicion.set_sensitive(false);
@@ -288,9 +291,19 @@ VistaEliminar::VistaEliminar(Gtk::Notebook& notebook)
 
     m_BtnVolver.set_label("Volver al Menú");
     m_BtnVolver.set_margin_top(10);
+    m_LblTitulo.set_margin_bottom(10);
+
+    // ---> CONFIGURAR EL INFOBAR AQUÍ <---
+    m_InfoBar.add_child(m_LblInfoBar);    
+    m_InfoBar.set_show_close_button(true);
+    m_InfoBar.hide(); // Oculto por defecto
+    m_InfoBar.signal_response().connect([this](int){ m_InfoBar.hide(); });
+
+    m_ScrolledWindow.set_size_request(350, 450);
 
     m_CardBox.append(m_LblTitulo);
     m_CardBox.append(m_ScrolledWindow);
+    m_CardBox.append(m_InfoBar);
     m_CardBox.append(m_BtnVolver);
 
     append(m_CardBox);
@@ -304,6 +317,12 @@ VistaEliminar::VistaEliminar(Gtk::Notebook& notebook)
             cargar_contactos();
         }
     });
+}
+
+void VistaEliminar::mostrarExito(std::string mensaje) {
+    m_LblInfoBar.set_markup("<span foreground='#2a9d8f' weight='bold'>Éxito: " + mensaje + "</span>");
+    m_InfoBar.set_message_type(Gtk::MessageType::INFO);
+    m_InfoBar.show();
 }
 
 void VistaEliminar::on_volver_clicked() {
@@ -341,7 +360,7 @@ Gtk::Box* VistaEliminar::crear_tarjeta_eliminar(string nombre, string apellido, 
     btnEliminar->set_icon_name("user-trash-symbolic"); 
     btnEliminar->set_valign(Gtk::Align::CENTER);
     
-    btnEliminar->signal_clicked().connect([this, nombre, numero]() {
+    btnEliminar->signal_clicked().connect([this, nombre, apellido, tlf, numero]() {
         auto* dialog = new Gtk::MessageDialog(
             *dynamic_cast<Gtk::Window*>(this->get_root()), 
             "Confirmar Eliminación", 
@@ -353,22 +372,31 @@ Gtk::Box* VistaEliminar::crear_tarjeta_eliminar(string nombre, string apellido, 
         
         dialog->set_secondary_text("¿Está seguro de que desea eliminar a " + nombre + " de forma permanente?");
   
-        dialog->signal_response().connect([this, dialog, numero](int response_id) {
+        // Asegúrate de capturar nombre, apellido y tlf en esta segunda lambda también
+        dialog->signal_response().connect([this, dialog, numero, nombre, apellido, tlf](int response_id) {
             if (response_id == Gtk::ResponseType::YES) {
                 if (tabla.eliminarContacto(numero)){
-                    this->contactoEliminado = true;
+                    contactosRecientes.insertarOperacion(nombre, apellido, std::stoi(tlf), numero, "Contacto Eliminado");
+                    gestorFicheros.guardarLista(contactosRecientes);
+                    gestorFicheros.guardarOperaciones();
+                    gestorFicheros.guardarDatos(tabla);
+                    mostrarExito("Contacto eliminado exitosamente.");
+                    Glib::signal_timeout().connect([this]() -> bool {
+                        m_InfoBar.hide();
+                        cargar_contactos();           
+                        m_notebook.set_current_page(1);
+                        return false;                 
+                    }, 1500);
                     cargar_contactos();
                 }
             }
             delete dialog; 
         });
-        
+
         dialog->show();
     });
-    if (contactoEliminado)
-        contactosRecientes.insertarOperacion(nombre,apellido,std::stoi(tlf),numero,"Contacto Eliminado");
 
-    contactoEliminado = false;
+    // ¡ELIMINA las líneas de "if (contactoEliminado)" que estaban aquí abajo!
     
     tarjeta->append(*icono);
     tarjeta->append(*cajaTextos);
@@ -726,10 +754,15 @@ void VistaGestion::on_guardar_clicked() {
     }
     m_InfoBar.hide();
     tabla.agregarContacto(nombre, apellido, correo, std::stoi(numeral), std::stol(telefono));
+    gestorFicheros.guardarDatos(tabla);
+    gestorFicheros.guardarContador();
     m_BtnGuardar.set_sensitive(false);
     limpiarCampos();
     mostrarExito("Contacto guardado exitosamente.");
     contactosRecientes.insertarOperacion(nombre,apellido,std::stoi(numeral),std::stol(telefono),"Contacto Agregado");
+    gestorFicheros.guardarLista(contactosRecientes);
+    gestorFicheros.guardarOperaciones();
+    gestorFicheros.guardarDatos(tabla);
 
     Glib::signal_timeout().connect([this]() -> bool {
         m_InfoBar.hide();                  
