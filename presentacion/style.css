@@ -1,105 +1,187 @@
+/* =========================================================
+   ESTILO ULTRA-MODERNO (CLEAN iPHONE AESTHETIC)
+   ========================================================= */
 
-/* 1. Fondo Crema Suave */
+/* 1. Fondo del escritorio y Botones de Hardware Laterales */
 window {
-    background-color: #FEFAE0; 
-    color: #283618;
-    font-family: "Segoe UI", sans-serif;
-    font-weight: 700;
+    background-color: #9b9ba0; /* Gris oscuro elegante para el fondo de la PC */
+    
+    /* Botones físicos laterales */
+    background-image:
+        linear-gradient(#111111, #111111), /* Botón Vol + */
+        linear-gradient(#111111, #111111), /* Botón Vol - */
+        linear-gradient(#111111, #111111); /* Botón Encendido */
+    background-size:
+        4px 55px, 
+        4px 55px, 
+        4px 80px; 
+    background-position:
+        16px 155px,             
+        16px 225px,             
+        calc(100% - 16px) 180px;
+    background-repeat: no-repeat;
 }
 
-/* 2. Cajas de Texto */
+/* 2. El Marco del Teléfono */
+.phone-frame {
+    background-color: #111111;
+    padding: 16px; 
+    border-radius: 45px; 
+    margin: 20px; 
+    overflow: hidden; 
+    box-shadow: 0px 20px 40px rgba(0,0,0,0.6); /* Sombra más profunda y realista */
+}
+
+/* 3. La Pantalla, Dynamic Island y Barra de Gestos (SIN AURA) */
+.phone-screen {
+    background-color: #F5F5F7; /* Gris súper claro y limpio, típico de iOS */
+    border-radius: 32px; 
+    
+    /* Solo 4 capas: Los dos círculos, el rectángulo central de la cámara, y la barra de inicio abajo */
+    background-image:
+        radial-gradient(circle at center, #000000 13px, transparent 13.5px),
+        radial-gradient(circle at center, #000000 13px, transparent 13.5px),
+        linear-gradient(#000000, #000000),
+        linear-gradient(#111111, #111111);
+    background-size:
+        26px 26px,   
+        26px 26px,   
+        84px 26px,   
+        130px 4px;   
+    background-position:
+        calc(50% - 40px) 12px,    
+        calc(50% + 40px) 12px,    
+        center 12px,              
+        center calc(100% - 10px); 
+    background-repeat: no-repeat;
+    
+    padding-top: 55px; 
+    padding-bottom: 25px; 
+}
+
+/* --- TEXTOS GLOBALES --- */
+label {
+    color: #1D1D1F; /* Casi negro, mucho más legible y moderno que el negro puro */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* --- TÍTULO DEL MENÚ PRINCIPAL --- */
+.titulo-principal {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; 
+    font-size: 22pt;
+    font-weight: 800;   /* Extra negrita */
+    font-style: normal; /* Sin cursiva, el diseño moderno prefiere tipografía recta y limpia */
+    color: #1D1D1F;     
+    letter-spacing: -0.5px; /* Espaciado ajustado (tracking negativo) para un look premium */
+    text-shadow: none;  /* Eliminamos el resplandor */
+    margin-bottom: 24px;
+}
+
+.titulo-secundario {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; 
+    font-size: 18pt;
+    font-weight: 800;   /* Extra negrita */
+    font-style: normal; /* Sin cursiva, el diseño moderno prefiere tipografía recta y limpia */
+    color: #383893;     
+    letter-spacing: -0.5px; /* Espaciado ajustado (tracking negativo) para un look premium */
+    text-shadow: none;  /* Eliminamos el resplandor */
+    margin-bottom: 24px;
+}
+
+/* --- CAJAS DE TEXTO (Inputs) --- */
 entry {
     background-color: #FFFFFF;
-    color: #283618;
-    border: 2px solid #606C38;
-    border-radius: 8px;
-    padding: 6px;
-    margin: 2px;
+    color: #1D1D1F;
+    border: 1px solid #D2D2D7; /* Borde gris sutil */
+    border-radius: 12px;
+    padding: 14px;
+    margin: 5px 0px;
+    box-shadow: inset 0px 1px 3px rgba(0,0,0,0.02); /* Sombra interna casi invisible */
 }
 entry:focus {
-    border-color: #BC6C25;
-    background-color: #FFFDF5;
+    border: 2px solid #5D0703; /* Acento Cherry al seleccionar */
+    box-shadow: none;
 }
 
-/* 3. Botones - IMPORTANTE: Resetear imagen de fondo */
+/* --- BOTONES MODERNOS --- */
 button {
-    background-color: #EDE9D5; 
-    background-image: none; /* <--- ESTO ARREGLA EL PROBLEMA */
-    color: #283618;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 600;
+    font-size: 13pt;
     border: none;
-    border-radius: 8px;
-    padding: 8px 12px;
-    margin: 4px;
-    box-shadow: none; /* Quitamos sombras del sistema */
+    border-radius: 14px; /* Bordes un poco más redondeados (squircle) */
+    padding: 16px;       /* Botones más altos y cómodos para tocar */
+    margin: 5px 0px; 
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición fluida */
+    transform: scale(1);
 }
 
-button:hover {
-    background-color: #D6D2BF;
-    background-image: none;
+/* Efecto moderno al presionar: El botón se encoge ligeramente */
+button:active {
+    transform: scale(0.97);
+    box-shadow: none !important;
 }
 
-
-/* Botón GESTIÓN (Terracota) */
-.boton-crud {
-    background-color: #BC6C25; 
-    color: #FEFAE0; 
-}
-.boton-crud:hover {
-    background-color: #9A561C;
+button:focus {
+    outline: none; 
 }
 
-/* Botón GUARDAR (Verde Oscuro) */
-.boton-guardar {
-    padding: 14px; 
-    background-color: #283618;
-    color: #FEFAE0;
+/* Botones de Acción Principal -> Cherry de acento */
+.boton-crud, .boton-guardar {
+    background-color: #5D0703; 
+    color: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(93, 7, 3, 0.25); /* Sombra elegante del mismo color */
 }
-.boton-guardar:hover {
-    padding: 14px; 
-    background-color: #1A2410;
+.boton-crud:hover, .boton-guardar:hover {
+    background-color: #4A0502; 
+    box-shadow: 0px 6px 16px rgba(93, 7, 3, 0.35);
 }
 
-/* Botones de FILTRO (Verde Oliva) */
+/* Botones Secundarios (Filtro, Menús) -> Gris claro moderno */
 .boton-filtro {
-    padding: 14px; 
-    background-color: #606C38;
-    color: #FEFAE0;
+    background-color: #E8E8ED; 
+    color: #1D1D1F; 
+    box-shadow: none; /* Sin sombra para diferenciar jerarquía */
 }
 .boton-filtro:hover {
-    padding: 14px; 
-    background-color: #4A542B;
+    background-color: #D2D2D7; 
 }
 
-/* Botón FAVORITOS (Mostaza) */
-.boton-filtro.favorito { 
-    padding: 14px; 
-    background-color: #DDA15E; 
-    color: #283618; /* Texto oscuro para contraste */
+/* Botones Peligrosos / Salir -> Negro absoluto */
+.favorito, button[label="Salir del Sistema"] {
+    background-color: #1D1D1F; 
+    color: #FFFFFF; 
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
 }
-.boton-filtro.favorito:hover {
-    padding: 14px; 
-    background-color: #C28B4D;
+.favorito:hover, button[label="Salir del Sistema"]:hover {
+    background-color: #000000; 
 }
 
+/* --- TARJETAS Y LISTAS (Directorio) --- */
 .tarjeta-contacto {
-    background-color: #f8f9fa; /* Fondo gris claro tipo tarjeta */
-    border-radius: 12px;       /* Bordes redondeados */
-    border: 1px solid #dee2e6; /* Borde sutil */
-    padding: 10px;
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    margin: 6px 0px;
+    padding: 16px;
+    border: 1px solid #E8E8ED; /* Borde súper sutil */
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.04); /* Sombra de elevación mínima */
 }
 
-/* 4. Lista */
-list {
-    background-color: #FFFFFF;
-    border: 2px solid #606C38;
-    border-radius: 8px;
+list, scrolledwindow {
+    background-color: transparent;
+    border: none;
 }
 list > row {
-    padding: 12px;
-    border-bottom: 1px solid #EEEEEE;
+    background-color: transparent;
+    border-bottom: none;
+    padding: 2px 0px;
 }
-/* Selección en la lista */
-list > row:selected {
-    background-color: #DDA15E; /* Fondo Terracota al seleccionar */
-    color: #FEFAE0;
+
+/* Al seleccionar un contacto */
+list > row:selected .tarjeta-contacto {
+    background-color: #5D0703; /* El fondo se vuelve de color acento */
+    border-color: #5D0703;
+}
+list > row:selected label {
+    color: #FFFFFF; /* Forzamos a que el texto de la tarjeta seleccionada sea blanco */
 }

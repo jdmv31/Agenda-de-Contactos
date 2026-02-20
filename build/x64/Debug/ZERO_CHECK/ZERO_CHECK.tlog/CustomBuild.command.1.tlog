@@ -1,6 +1,6 @@
-^C:\USERS\JOSUE\ONEDRIVE\DESKTOP\PROYECTO 3 ED\AGENDA-DE-CONTACTOS\BUILD\CMAKEFILES\DE7780397A960172752C1A38E84F7001\GENERATE.STAMP.RULE
+^C:\USERS\NICOL\DESKTOP\DIRECTORIO\AGENDA-DE-CONTACTOS\BUILD\CMAKEFILES\4EF5BA068C44EEF21D7AD6F7F0865EA3\GENERATE.STAMP.RULE
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/josue/OneDrive/Desktop/proyecto 3 ED/Agenda-de-Contactos" "-BC:/Users/josue/OneDrive/Desktop/proyecto 3 ED/Agenda-de-Contactos/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/josue/OneDrive/Desktop/proyecto 3 ED/Agenda-de-Contactos/build/AgendaDeContactos.sln"
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/nicol/Desktop/directorio/Agenda-de-Contactos -BC:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/AgendaDeContactos.sln
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

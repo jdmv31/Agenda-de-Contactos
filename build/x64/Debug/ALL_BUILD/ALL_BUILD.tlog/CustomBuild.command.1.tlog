@@ -1,6 +1,6 @@
-^C:\USERS\JOSUE\ONEDRIVE\DESKTOP\PROYECTO 3 ED\AGENDA-DE-CONTACTOS\CMAKELISTS.TXT
+^C:\USERS\NICOL\DESKTOP\DIRECTORIO\AGENDA-DE-CONTACTOS\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/josue/OneDrive/Desktop/proyecto 3 ED/Agenda-de-Contactos" "-BC:/Users/josue/OneDrive/Desktop/proyecto 3 ED/Agenda-de-Contactos/build" --check-stamp-file "C:/Users/josue/OneDrive/Desktop/proyecto 3 ED/Agenda-de-Contactos/build/CMakeFiles/generate.stamp"
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/nicol/Desktop/directorio/Agenda-de-Contactos -BC:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build --check-stamp-file C:/Users/nicol/Desktop/directorio/Agenda-de-Contactos/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone

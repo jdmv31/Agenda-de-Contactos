@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\josue\OneDrive\Desktop\proyecto 3 ED\Agenda-de-Contactos\main.cpp">
+    <ClCompile Include="C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\josue\OneDrive\Desktop\proyecto 3 ED\Agenda-de-Contactos\presentacion\Interfaz.cpp">
+    <ClCompile Include="C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\presentacion\Interfaz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\josue\OneDrive\Desktop\proyecto 3 ED\Agenda-de-Contactos\negocios\TablaHash.cpp">
+    <ClCompile Include="C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\negocios\TablaHash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\josue\OneDrive\Desktop\proyecto 3 ED\Agenda-de-Contactos\negocios\Lista.cpp">
+    <ClCompile Include="C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\negocios\Lista.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\josue\OneDrive\Desktop\proyecto 3 ED\Agenda-de-Contactos\datos\Ficheros.cpp">
+    <ClCompile Include="C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\datos\Ficheros.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\josue\OneDrive\Desktop\proyecto 3 ED\Agenda-de-Contactos\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\nicol\Desktop\directorio\Agenda-de-Contactos\CMakelists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{8D04C391-125E-374E-9213-66E9A71227E8}</UniqueIdentifier>
+      <UniqueIdentifier>{5D38F60A-A403-3D52-927A-E583817340D4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
