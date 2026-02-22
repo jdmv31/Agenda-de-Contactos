@@ -158,30 +158,23 @@ class CrearContacto : public Gtk::Box {
 class VistaBusqueda : public Gtk::Box {
     public:
         VistaBusqueda(Gtk::Notebook& notebook);
+        void cargar_contactos_filtro(std::string termino);
+
     protected:
         Gtk::Notebook& m_notebook;
-        Gtk::Box m_CenterBox;
-        
         Gtk::Box m_CardBox;
         Gtk::Label m_LblTitulo;
-        Gtk::Label m_LblInstruccion;
+        Gtk::Box m_BoxBusqueda;
         Gtk::Entry m_EntryKeyword;
-        Gtk::Button m_BtnBuscar;
-        Gtk::Button m_BtnVolver;
         Gtk::Label m_LblError;
-
-        Gtk::Box m_CardBoxResultados;
-        Gtk::Label m_LblResTitulo;
-        Gtk::ScrolledWindow m_ScrollRes;
-        Gtk::TextView m_TxtResContenido;
-        Gtk::Button m_BtnNuevaBusqueda;
-        Gtk::Button m_BtnIrMenu;
+        Gtk::ScrolledWindow m_ScrolledWindow;
+        Gtk::Box m_ListadoBox; 
+        Gtk::Button m_BtnVolver;
 
         void on_buscar_clicked();
-        void on_nueva_busqueda_clicked();
         void on_volver_clicked();
+        Gtk::Box* crear_tarjeta_contacto(string nombre, string apellido, string tlf, string correo);
 };
-
 class VistaRecientes : public Gtk::Box {
     public:
         VistaRecientes(Gtk::Notebook& notebook);

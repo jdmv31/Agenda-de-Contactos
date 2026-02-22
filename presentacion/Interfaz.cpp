@@ -37,7 +37,6 @@ VistaModificar::VistaModificar(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolverMenu.set_label("Volver al Menú");
-    m_BtnVolverMenu.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolverMenu.set_hexpand(true);
 
     m_PanelLista.append(m_LblTituloLista);
@@ -84,11 +83,10 @@ VistaModificar::VistaModificar(Gtk::Notebook& notebook)
     m_LblTlfFijo.set_margin_bottom(10);
 
     m_BtnGuardar.set_label("Guardar Cambios");
-    m_BtnGuardar.add_css_class("boton-guardar"); // <-- CLASE AZUL
+    m_BtnGuardar.add_css_class("boton-guardar");
     m_BtnGuardar.set_hexpand(true);
     
     m_BtnCancelarEdicion.set_label("Cancelar");
-    m_BtnCancelarEdicion.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnCancelarEdicion.set_hexpand(true);
 
     m_PanelEdicion.append(m_LblTituloEdicion);
@@ -197,7 +195,6 @@ Gtk::Box* VistaModificar::crear_tarjeta_modificar(std::string nombre, std::strin
 
     auto* btnEditar = Gtk::make_managed<Gtk::Button>();
     btnEditar->set_valign(Gtk::Align::CENTER);
-    btnEditar->add_css_class("boton-filtro"); // <-- CLASE AZUL PARA EL LAPICITO
 
     auto* iconoEditar = Gtk::make_managed<Gtk::Image>();
     iconoEditar->set("presentacion/assets/editar.png");
@@ -267,7 +264,6 @@ VistaEliminar::VistaEliminar(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolver.set_label("Volver al Menú");
-    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolver.set_margin_top(10);
     m_BtnVolver.set_hexpand(true);
 
@@ -334,7 +330,6 @@ Gtk::Box* VistaEliminar::crear_tarjeta_eliminar(string nombre, string apellido, 
     auto* btnEliminar = Gtk::make_managed<Gtk::Button>();
     btnEliminar->set_icon_name("user-trash-symbolic"); 
     btnEliminar->set_valign(Gtk::Align::CENTER);
-    btnEliminar->add_css_class("boton-volver"); // <-- CLASE ROJA PARA LA PAPELERA
     
     btnEliminar->signal_clicked().connect([this, nombre, apellido, tlf, numero]() {
         auto* dialog = new Gtk::MessageDialog(
@@ -414,7 +409,6 @@ VistaConsulta::VistaConsulta(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolver.set_label("Volver al Menú");
-    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolver.set_margin_top(10);
     m_BtnVolver.set_hexpand(true);
 
@@ -518,7 +512,6 @@ GestionarContactos::GestionarContactos(Gtk::Notebook& notebook)
     m_BtnModificar.add_css_class("boton-filtro");
     m_BtnEliminar.add_css_class("boton-filtro");
     m_BtnConsultar.add_css_class("boton-filtro");
-    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
 
     m_BtnAgregar.set_hexpand(true);
     m_BtnModificar.set_hexpand(true);
@@ -565,7 +558,7 @@ VistaGestion::VistaGestion(Gtk::Notebook& notebook)
     m_CardBox.set_halign(Gtk::Align::FILL);
 
     m_LblTitulo.set_markup("<span size='x-large' weight='bold'>Crear Nuevo Contacto</span>");
-    m_LblTitulo.set_margin_bottom(15);
+    m_LblTitulo.set_margin_bottom(10);
 
     m_LblNombre.set_text("Nombre:");
     m_LblNombre.set_halign(Gtk::Align::END);
@@ -584,15 +577,6 @@ VistaGestion::VistaGestion(Gtk::Notebook& notebook)
     
     m_EntryTlf.set_placeholder_text("1234567");
     m_EntryTlf.set_hexpand(true);
-
-    m_EntryNombre.set_placeholder_text("Ej: Juan");
-    m_EntryNombre.set_hexpand(true);
-    
-    m_EntryApellido.set_placeholder_text("Ej: Pérez");
-    m_EntryApellido.set_hexpand(true);
-    
-    m_EntryEmail.set_placeholder_text("ejemplo@correo.com");
-    m_EntryEmail.set_hexpand(true);
 
     auto* boxTlf = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL);
     boxTlf->set_spacing(5);
@@ -627,7 +611,6 @@ VistaGestion::VistaGestion(Gtk::Notebook& notebook)
     m_BtnGuardar.set_hexpand(true);
 
     m_BtnVolver.set_label("Cancelar");
-    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolver.set_hexpand(true);
 
     m_CardBox.append(m_LblTitulo);
@@ -711,113 +694,150 @@ void VistaGestion::on_guardar_clicked() {
     }, 2500);
 }
 
-// =========================================================
-// IMPLEMENTACIÓN VISTA BÚSQUEDA
-// =========================================================
 VistaBusqueda::VistaBusqueda(Gtk::Notebook& notebook) 
     : Gtk::Box(Gtk::Orientation::VERTICAL), m_notebook(notebook) 
 {
-    m_CenterBox.set_orientation(Gtk::Orientation::VERTICAL);
-    m_CenterBox.set_expand(true);
-    m_CenterBox.set_valign(Gtk::Align::FILL);
-    m_CenterBox.set_halign(Gtk::Align::FILL);
+    set_valign(Gtk::Align::FILL);
+    set_halign(Gtk::Align::FILL);
+    set_expand(true);
 
     m_CardBox.set_orientation(Gtk::Orientation::VERTICAL);
     m_CardBox.set_spacing(15);
-    m_CardBox.set_margin_start(40);
-    m_CardBox.set_margin_end(40);
-    m_CardBox.set_valign(Gtk::Align::CENTER);
-    m_CardBox.set_halign(Gtk::Align::FILL);
+    m_CardBox.set_margin(20);
+    m_CardBox.set_hexpand(true);
+    m_CardBox.set_vexpand(true);
 
-     // Usamos set_markup para darle tamaño (x-large) y negrita (bold) al título
     m_LblTitulo.set_markup("<span size='x-large' weight='bold' color='#383893'>Buscar en la Agenda</span>");
     m_LblTitulo.set_margin_bottom(10);
-    m_LblInstruccion.set_markup("<span size='large'>Ingrese Nombre o Teléfono:</span>");
-    m_LblInstruccion.set_halign(Gtk::Align::START);
+
+    m_BoxBusqueda.set_orientation(Gtk::Orientation::HORIZONTAL);
+    m_BoxBusqueda.set_spacing(10);
     
-    m_EntryKeyword.set_placeholder_text("Ej: Maria");
+    m_EntryKeyword.set_placeholder_text("Buscar por nombre, teléfono o correo...");
     m_EntryKeyword.set_hexpand(true);
 
-    m_LblError.set_markup(""); 
-    
-    m_BtnBuscar.set_label("Buscar");
-    m_BtnBuscar.add_css_class("boton-crud"); 
-    m_BtnBuscar.set_hexpand(true);
+    m_BoxBusqueda.append(m_EntryKeyword);
 
-    m_BtnVolver.set_label("Volver");
-    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
+    m_LblError.set_markup(""); 
+    m_ScrolledWindow.set_vexpand(true);
+    m_ScrolledWindow.set_hexpand(true);
+    m_ScrolledWindow.set_policy(Gtk::PolicyType::NEVER, Gtk::PolicyType::AUTOMATIC); 
+    m_ScrolledWindow.set_has_frame(true);
+
+    m_ListadoBox.set_orientation(Gtk::Orientation::VERTICAL);
+    m_ListadoBox.set_spacing(10);
+    m_ListadoBox.set_margin(10);
+
+    m_ScrolledWindow.set_child(m_ListadoBox);
+
+    m_BtnVolver.set_label("Volver al Menú");
+    m_BtnVolver.add_css_class("boton-volver");
+    m_BtnVolver.set_margin_top(10);
     m_BtnVolver.set_hexpand(true);
 
     m_CardBox.append(m_LblTitulo);
-    m_CardBox.append(m_LblInstruccion);
-    m_CardBox.append(m_EntryKeyword); 
-    m_CardBox.append(m_BtnBuscar);
+    m_CardBox.append(m_BoxBusqueda);
+    m_CardBox.append(m_LblError);
+    m_CardBox.append(m_ScrolledWindow);
     m_CardBox.append(m_BtnVolver);
-    m_CardBox.append(m_LblError);    
 
-    m_CardBoxResultados.set_orientation(Gtk::Orientation::VERTICAL);
-    m_CardBoxResultados.set_spacing(15);
-    m_CardBoxResultados.set_margin_start(40);
-    m_CardBoxResultados.set_margin_end(40);
-    m_CardBoxResultados.set_valign(Gtk::Align::FILL);
-    m_CardBoxResultados.set_halign(Gtk::Align::FILL);
-
-    m_LblResTitulo.set_text("Resultados de la Búsqueda");
-    m_TxtResContenido.set_editable(false);
-    m_TxtResContenido.set_wrap_mode(Gtk::WrapMode::WORD);
-
-    m_ScrollRes.set_child(m_TxtResContenido);
-    m_ScrollRes.set_vexpand(true);
-    m_ScrollRes.set_hexpand(true);
-    m_ScrollRes.set_policy(Gtk::PolicyType::AUTOMATIC, Gtk::PolicyType::AUTOMATIC);
-    m_ScrollRes.set_has_frame(true);
-
-    m_BtnNuevaBusqueda.set_label("Nueva Búsqueda");
-    m_BtnNuevaBusqueda.add_css_class("boton-filtro");
-    m_BtnNuevaBusqueda.set_hexpand(true);
-
-    m_BtnIrMenu.set_label("Volver al Menú");
-    m_BtnIrMenu.add_css_class("boton-volver"); // <-- CLASE ROJA
-    m_BtnIrMenu.set_hexpand(true);
-
-    m_CardBoxResultados.append(m_LblResTitulo);
-    m_CardBoxResultados.append(m_ScrollRes);
-    m_CardBoxResultados.append(m_BtnNuevaBusqueda);
-    m_CardBoxResultados.append(m_BtnIrMenu);
-
-    m_CenterBox.append(m_CardBox);
-    append(m_CenterBox);
+    append(m_CardBox);
 
     m_BtnVolver.signal_clicked().connect(sigc::mem_fun(*this, &VistaBusqueda::on_volver_clicked));
-    m_BtnBuscar.signal_clicked().connect(sigc::mem_fun(*this, &VistaBusqueda::on_buscar_clicked));
-    m_BtnNuevaBusqueda.signal_clicked().connect(sigc::mem_fun(*this, &VistaBusqueda::on_nueva_busqueda_clicked));
-    m_BtnIrMenu.signal_clicked().connect(sigc::mem_fun(*this, &VistaBusqueda::on_volver_clicked));
+    m_EntryKeyword.signal_changed().connect(sigc::mem_fun(*this, &VistaBusqueda::on_buscar_clicked));
+
+    m_notebook.signal_switch_page().connect([this](Gtk::Widget* page, guint page_num) {
+        if (page == this) {
+            m_EntryKeyword.set_text("");
+            cargar_contactos_filtro(""); 
+        }
+    });
 }
 
-void VistaBusqueda::on_volver_clicked() { 
-    m_LblError.set_markup("");
-    m_notebook.set_current_page(0); 
+Gtk::Box* VistaBusqueda::crear_tarjeta_contacto(string nombre, string apellido, string tlf, string correo) {
+    auto* tarjeta = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL);
+    tarjeta->set_spacing(15);
+    tarjeta->set_margin(10);
+    tarjeta->add_css_class("tarjeta-contacto"); 
+    tarjeta->set_hexpand(true);
+    tarjeta->set_halign(Gtk::Align::FILL);
+
+    auto* icono = Gtk::make_managed<Gtk::Image>();
+    icono->set("presentacion/assets/contacto.png");
+    icono->set_pixel_size(60);
+    icono->set_valign(Gtk::Align::CENTER);
+
+    auto* cajaTextos = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::VERTICAL);
+    cajaTextos->set_spacing(3);
+    cajaTextos->set_valign(Gtk::Align::CENTER);
+
+    auto* lblNombre = Gtk::make_managed<Gtk::Label>();
+    lblNombre->set_markup("<span size='large' weight='bold'>" + nombre + " " + apellido + "</span>");
+    lblNombre->set_halign(Gtk::Align::START);
+
+    auto* lblTlf = Gtk::make_managed<Gtk::Label>();
+    lblTlf->set_markup("<span foreground='#555555'>📞 " + tlf + "</span>");
+    lblTlf->set_halign(Gtk::Align::START);
+
+    auto* lblCorreo = Gtk::make_managed<Gtk::Label>();
+    lblCorreo->set_markup("<span foreground='#0066cc'>✉ " + correo + "</span>");
+    lblCorreo->set_halign(Gtk::Align::START);
+
+    cajaTextos->append(*lblNombre);
+    cajaTextos->append(*lblTlf);
+    cajaTextos->append(*lblCorreo);
+
+    tarjeta->append(*icono);
+    tarjeta->append(*cajaTextos);
+
+    return tarjeta;
 }
 
-void VistaBusqueda::on_nueva_busqueda_clicked() {
-    m_LblError.set_markup("");
-    m_EntryKeyword.set_text(""); 
-    m_CenterBox.remove(m_CardBoxResultados); 
-    m_CenterBox.append(m_CardBox); 
+void VistaBusqueda::cargar_contactos_filtro(std::string termino) {
+    while (auto* child = m_ListadoBox.get_first_child()) {
+        m_ListadoBox.remove(*child);
+    }
+    
+    int contador = 0;
+    tabla.recorrerTabla([this, termino, &contador](Nodo* contacto) {
+        std::string tlf_completo = "0" + std::to_string(contacto->numeral) + "-" + std::to_string(contacto->numeroTelefonico);
+        
+        bool coincide = false;
+        
+        if (termino.empty()) {
+            coincide = true;
+        } else {
+            if (contacto->nombre.find(termino) != std::string::npos || 
+                contacto->apellido.find(termino) != std::string::npos ||
+                tlf_completo.find(termino) != std::string::npos ||
+                contacto->correo.find(termino) != std::string::npos) {
+                coincide = true;
+            }
+        }
+
+        if (coincide) {
+            auto* nueva_tarjeta = crear_tarjeta_contacto(contacto->nombre, contacto->apellido, tlf_completo, contacto->correo);
+            m_ListadoBox.append(*nueva_tarjeta);
+            contador++;
+        }
+    });
+
+    if (contador == 0 && !termino.empty()) {
+        m_LblError.set_markup("<span color='#BC6C25'>No se encontraron resultados para la búsqueda.</span>");
+    } else {
+        m_LblError.set_markup("");
+    }
 }
 
 void VistaBusqueda::on_buscar_clicked() {
     std::string termino = m_EntryKeyword.get_text();
-    if (termino.empty()) {
-        m_LblError.set_markup("<span color='#BC6C25'>Ingrese un dato para buscar.</span>");
-        return;
-    }
+    cargar_contactos_filtro(termino);
+}
 
-    auto buffer = m_TxtResContenido.get_buffer();
-    buffer->set_text("Resultados simulados para: " + termino + "\n\n1. Maria Perez [0414-123456]");
-    
-    m_CenterBox.remove(m_CardBox);
-    m_CenterBox.append(m_CardBoxResultados);
+void VistaBusqueda::on_volver_clicked() {
+    m_LblError.set_markup("");
+    m_EntryKeyword.set_text("");
+    m_notebook.set_current_page(0); 
 }
 
 // =========================================================
@@ -851,7 +871,6 @@ VistaRecientes::VistaRecientes(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolver.set_label("Volver al Menú");
-    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolver.set_margin_top(10);
     m_BtnVolver.set_hexpand(true);
 
@@ -946,7 +965,7 @@ VistaExportar::VistaExportar(Gtk::Notebook& notebook)
     m_CardBoxResultados.set_valign(Gtk::Align::FILL);
     m_CardBoxResultados.set_halign(Gtk::Align::FILL);
 
-    m_LblTitulo.set_markup("<span size='x-large' weight='bold' color='#383893'>Exportar Datos</span>");
+    m_LblTitulo.set_text("Exportar Datos");
 
     m_TxtResContenido.set_editable(false);
     m_TxtResContenido.set_monospace(true);
@@ -962,15 +981,14 @@ VistaExportar::VistaExportar(Gtk::Notebook& notebook)
     m_BtnExportar.set_hexpand(true);
 
     m_BtnVolver.set_label("Volver");
-    m_BtnVolver.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnVolver.set_hexpand(true);
 
     m_LblMensaje.set_markup("");
 
     m_CardBoxResultados.append(m_LblTitulo);
     m_CardBoxResultados.append(m_ScrollRes);
-    m_CardBoxResultados.append(m_LblMensaje); 
     m_CardBoxResultados.append(m_BtnExportar);
+    m_CardBoxResultados.append(m_LblMensaje);
     m_CardBoxResultados.append(m_BtnVolver);
 
     m_CenterBox.append(m_CardBoxResultados);
@@ -1023,8 +1041,7 @@ void VistaExportar::on_volver_clicked() {
 Interfaz::Interfaz() {
 
     set_title("Agenda de Contactos");
-    set_default_size(700, 1050); 
-
+    set_default_size(600, 900); 
 
     auto css_provider = Gtk::CssProvider::create();
     try {
@@ -1081,7 +1098,7 @@ Interfaz::Interfaz() {
 
     m_BtnRecientes.set_label("Visualizar Recientes");
     m_BtnRecientes.add_css_class("boton-filtro"); 
-    // SE ELIMINÓ la clase "favorito" de aquí para que tenga borde azul y no rojo.
+    m_BtnRecientes.add_css_class("favorito"); 
     m_BtnRecientes.set_hexpand(true);
 
     m_BtnExportar.set_label("Exportar Datos a CSV");
@@ -1089,7 +1106,6 @@ Interfaz::Interfaz() {
     m_BtnExportar.set_hexpand(true);
 
     m_BtnSalir.set_label("Salir del Sistema");
-    m_BtnSalir.add_css_class("boton-volver"); // <-- CLASE ROJA
     m_BtnSalir.set_hexpand(true);
 
     m_MenuContainer.append(m_titulo_principal);
@@ -1141,12 +1157,9 @@ Interfaz::Interfaz() {
     m_PhoneScreen.append(m_Notebook); 
     m_PhoneFrame.append(m_PhoneScreen);
     set_child(m_PhoneFrame);
-
 }
 
-
-Interfaz::~Interfaz() {
-}
+Interfaz::~Interfaz() {}
 
 void Interfaz::on_salir_clicked() { 
     set_visible(false); 
