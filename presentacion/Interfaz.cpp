@@ -953,11 +953,25 @@ void VistaRecientes::actualizar_datos() {
     while (auto* child = m_ListadoBox.get_first_child()) {
         m_ListadoBox.remove(*child);
     }
-    contactosRecientes.recorrerLista([this](Nodo2* operacion) {
+
+    int contador = 0;
+    contactosRecientes.recorrerLista([this, &contador](Nodo2* operacion) {
         std::string tlf_completo = "0" + std::to_string(operacion->numeral) + "-" + std::to_string(operacion->telefono);
         auto* tarjeta = crear_tarjeta_reciente(operacion->nombre, operacion->apellido, tlf_completo, operacion->accion);
         m_ListadoBox.append(*tarjeta);
+        
+        contador++;
     });
+
+    if (contador == 0) {
+        auto* lblVacio = Gtk::make_managed<Gtk::Label>();
+        lblVacio->set_markup("<span size='large' foreground='#BC6C25' weight='bold'>No hay actividad reciente registrada.</span>");
+        lblVacio->set_margin_top(40);
+        lblVacio->set_margin_bottom(20);
+        lblVacio->set_halign(Gtk::Align::CENTER);
+        
+        m_ListadoBox.append(*lblVacio);
+    }
 }
 
 void VistaRecientes::on_volver_clicked() { 
