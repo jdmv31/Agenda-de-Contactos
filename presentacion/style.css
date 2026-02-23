@@ -100,7 +100,6 @@ entry {
 }
 
 /* --- BOTONES MODERNOS --- */
-/* --- BOTONES MODERNOS --- */
 button {
     font-family: "Corbel", sans-serif;
     font-weight: 600;
@@ -184,3 +183,15 @@ list > row:selected .tarjeta-contacto {
 list > row:selected label {
     color: #FFFFFF; /* Forzamos a que el texto de la tarjeta seleccionada sea blanco */
 }
+
+window.dialog, dialog, messagedialog {
+    background-image: none; 
+    background-color: #FFFFFF; /* Color claro que combina con la pantalla */
+    border-radius: 16px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+window.dialog label, dialog label, messagedialog label {
+    color: #d11414;
+}
+

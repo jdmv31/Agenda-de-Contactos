@@ -37,6 +37,7 @@ VistaModificar::VistaModificar(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolverMenu.set_label("Volver al Menú");
+    m_BtnVolverMenu.add_css_class("favorito"); 
     m_BtnVolverMenu.set_hexpand(true);
 
     m_PanelLista.append(m_LblTituloLista);
@@ -87,6 +88,7 @@ VistaModificar::VistaModificar(Gtk::Notebook& notebook)
     m_BtnGuardar.set_hexpand(true);
     
     m_BtnCancelarEdicion.set_label("Cancelar");
+    m_BtnCancelarEdicion.add_css_class("favorito"); 
     m_BtnCancelarEdicion.set_hexpand(true);
 
     m_PanelEdicion.append(m_LblTituloEdicion);
@@ -264,6 +266,7 @@ VistaEliminar::VistaEliminar(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolver.set_label("Volver al Menú");
+    m_BtnVolver.add_css_class("favorito"); 
     m_BtnVolver.set_margin_top(10);
     m_BtnVolver.set_hexpand(true);
 
@@ -336,6 +339,7 @@ Gtk::Box* VistaEliminar::crear_tarjeta_eliminar(string nombre, string apellido, 
             *dynamic_cast<Gtk::Window*>(this->get_root()), 
             "Confirmar Eliminación", false, Gtk::MessageType::WARNING, Gtk::ButtonsType::YES_NO, true
         );
+        dialog->add_css_class("mi-dialogo");
         dialog->set_secondary_text("¿Está seguro de que desea eliminar a " + nombre + " de forma permanente?");
   
         dialog->signal_response().connect([this, dialog, numero, nombre, apellido, tlf](int response_id) {
@@ -409,6 +413,7 @@ VistaConsulta::VistaConsulta(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolver.set_label("Volver al Menú");
+    m_BtnVolver.add_css_class("favorito"); 
     m_BtnVolver.set_margin_top(10);
     m_BtnVolver.set_hexpand(true);
 
@@ -507,6 +512,7 @@ GestionarContactos::GestionarContactos(Gtk::Notebook& notebook)
     m_BtnEliminar.set_label("Eliminar Contacto");
     m_BtnConsultar.set_label("Consultar Contactos");
     m_BtnVolver.set_label("Volver al Menú Principal");
+    m_BtnVolver.add_css_class("favorito"); 
 
     m_BtnAgregar.add_css_class("boton-crud");
     m_BtnModificar.add_css_class("boton-filtro");
@@ -557,7 +563,7 @@ VistaGestion::VistaGestion(Gtk::Notebook& notebook)
     m_CardBox.set_valign(Gtk::Align::CENTER); // Centrado verticalmente el form
     m_CardBox.set_halign(Gtk::Align::FILL);
 
-    m_LblTitulo.set_markup("<span size='x-large' weight='bold'>Crear Nuevo Contacto</span>");
+    m_LblTitulo.set_markup("<span size='x-large' foreground='#023e8a' weight='bold'>Crear Nuevo Contacto</span>");
     m_LblTitulo.set_margin_bottom(10);
 
     m_LblNombre.set_text("Nombre:");
@@ -577,6 +583,15 @@ VistaGestion::VistaGestion(Gtk::Notebook& notebook)
     
     m_EntryTlf.set_placeholder_text("1234567");
     m_EntryTlf.set_hexpand(true);
+
+    m_EntryNombre.set_placeholder_text("Silas");
+    m_EntryNombre.set_hexpand(true);
+
+    m_EntryApellido.set_placeholder_text("Salvatore");
+    m_EntryApellido.set_hexpand(true);
+
+    m_EntryEmail.set_placeholder_text("Silas22lol@gmail.com");
+    m_EntryEmail.set_hexpand(true);
 
     auto* boxTlf = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL);
     boxTlf->set_spacing(5);
@@ -611,6 +626,7 @@ VistaGestion::VistaGestion(Gtk::Notebook& notebook)
     m_BtnGuardar.set_hexpand(true);
 
     m_BtnVolver.set_label("Cancelar");
+    m_BtnVolver.add_css_class ("favorito");
     m_BtnVolver.set_hexpand(true);
 
     m_CardBox.append(m_LblTitulo);
@@ -731,7 +747,7 @@ VistaBusqueda::VistaBusqueda(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolver.set_label("Volver al Menú");
-    m_BtnVolver.add_css_class("boton-volver");
+    m_BtnVolver.add_css_class("favorito"); 
     m_BtnVolver.set_margin_top(10);
     m_BtnVolver.set_hexpand(true);
 
@@ -871,6 +887,7 @@ VistaRecientes::VistaRecientes(Gtk::Notebook& notebook)
     m_ScrolledWindow.set_child(m_ListadoBox);
 
     m_BtnVolver.set_label("Volver al Menú");
+    m_BtnVolver.add_css_class("favorito"); 
     m_BtnVolver.set_margin_top(10);
     m_BtnVolver.set_hexpand(true);
 
@@ -966,6 +983,7 @@ VistaExportar::VistaExportar(Gtk::Notebook& notebook)
     m_CardBoxResultados.set_halign(Gtk::Align::FILL);
 
     m_LblTitulo.set_text("Exportar Datos");
+    m_LblTitulo.add_css_class("titulo-secundario");
 
     m_TxtResContenido.set_editable(false);
     m_TxtResContenido.set_monospace(true);
@@ -981,6 +999,7 @@ VistaExportar::VistaExportar(Gtk::Notebook& notebook)
     m_BtnExportar.set_hexpand(true);
 
     m_BtnVolver.set_label("Volver");
+    m_BtnVolver.add_css_class("favorito"); 
     m_BtnVolver.set_hexpand(true);
 
     m_LblMensaje.set_markup("");
@@ -988,9 +1007,9 @@ VistaExportar::VistaExportar(Gtk::Notebook& notebook)
     m_CardBoxResultados.append(m_LblTitulo);
     m_CardBoxResultados.append(m_ScrollRes);
     m_CardBoxResultados.append(m_BtnExportar);
-    m_CardBoxResultados.append(m_LblMensaje);
     m_CardBoxResultados.append(m_BtnVolver);
-
+    m_CardBoxResultados.append(m_LblMensaje);
+    
     m_CenterBox.append(m_CardBoxResultados);
     append(m_CenterBox);
 
@@ -1041,7 +1060,7 @@ void VistaExportar::on_volver_clicked() {
 Interfaz::Interfaz() {
 
     set_title("Agenda de Contactos");
-    set_default_size(600, 900); 
+    set_default_size(690, 1000); 
 
     auto css_provider = Gtk::CssProvider::create();
     try {
@@ -1098,7 +1117,6 @@ Interfaz::Interfaz() {
 
     m_BtnRecientes.set_label("Visualizar Recientes");
     m_BtnRecientes.add_css_class("boton-filtro"); 
-    m_BtnRecientes.add_css_class("favorito"); 
     m_BtnRecientes.set_hexpand(true);
 
     m_BtnExportar.set_label("Exportar Datos a CSV");
@@ -1106,6 +1124,7 @@ Interfaz::Interfaz() {
     m_BtnExportar.set_hexpand(true);
 
     m_BtnSalir.set_label("Salir del Sistema");
+    m_BtnSalir.add_css_class("favorito"); 
     m_BtnSalir.set_hexpand(true);
 
     m_MenuContainer.append(m_titulo_principal);
