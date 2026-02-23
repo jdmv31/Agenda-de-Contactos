@@ -584,13 +584,13 @@ VistaGestion::VistaGestion(Gtk::Notebook& notebook)
     m_EntryTlf.set_placeholder_text("1234567");
     m_EntryTlf.set_hexpand(true);
 
-    m_EntryNombre.set_placeholder_text("Silas");
+    m_EntryNombre.set_placeholder_text("Vladimir");
     m_EntryNombre.set_hexpand(true);
 
     m_EntryApellido.set_placeholder_text("Salvatore");
     m_EntryApellido.set_hexpand(true);
 
-    m_EntryEmail.set_placeholder_text("Silas22lol@gmail.com");
+    m_EntryEmail.set_placeholder_text("Vladimir22lol@gmail.com");
     m_EntryEmail.set_hexpand(true);
 
     auto* boxTlf = Gtk::make_managed<Gtk::Box>(Gtk::Orientation::HORIZONTAL);
